@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Java: del objeto a las decisiones</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+    :root{
+      --bg:#0b0d10;
+      --panel:#12161b;
+      --panel2:#171c22;
+      --text:#f3f5f7;
+      --muted:#a7b0bb;
+      --accent:#d7ff4f;
+      --accent2:#9cf0ff;
+      --line:#2a3139;
+      --danger:#ff7b91;
+    }
+    *{box-sizing:border-box}
+    html,body,#app{margin:0;width:100%;height:100%;overflow:hidden}
+    body{
+      background:var(--bg);
+      color:var(--text);
+      font-family:Inter,system-ui,sans-serif;
+    }
+    button{font:inherit}
+    .deck{height:100%;position:relative}
+    .slide{
+      height:100%;width:100%;padding:5.2vh 6vw 7vh;
+      display:flex;flex-direction:column;justify-content:center;
+      position:relative;overflow:hidden;
+    }
+    .slide::after{
+      content:"";position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(120deg,rgba(255,255,255,.015),transparent 40%);
+    }
+    .topline{
+      position:absolute;left:6vw;right:6vw;top:2.5vh;
+      display:flex;justify-content:space-between;align-items:center;
+      color:var(--muted);font-size:12px;letter-spacing:.12em;text-transform:uppercase;
+    }
+    .progress{
+      position:absolute;bottom:0;left:0;height:4px;background:var(--accent);
+      transition:width .25s ease;
+    }
+    .kicker{
+      color:var(--accent);font-size:clamp(12px,1.15vw,17px);
+      font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+      margin-bottom:1.4rem;
+    }
+    h1{
+      font-size:clamp(64px,7.8vw,126px);line-height:.96;
+      letter-spacing:-.055em;margin:0 0 2rem;font-weight:800;
+      max-width:1100px;
+    }
+    h2{
+      font-size:clamp(50px,6vw,92px);line-height:1;
+      letter-spacing:-.045em;margin:0 0 2.2rem;font-weight:800;
+    }
+    p{font-size:clamp(24px,2.15vw,36px);line-height:1.35;color:var(--muted);max-width:1100px}
+    .subtitle{font-size:clamp(25px,2.15vw,36px);color:var(--muted);max-width:1050px}
+    .accent{color:var(--accent)}
+    .cyan{color:var(--accent2)}
+    .grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;
+      width:min(1180px,100%);
+    }
+    .card{
+      border:1px solid var(--line);background:var(--panel);
+      border-radius:18px;padding:1.5rem 1.6rem;
+      min-height:180px;
+    }
+    .card h3{margin:0 0 1rem;font-size:clamp(27px,2.35vw,38px)}
+    .card p{font-size:clamp(22px,1.75vw,30px);margin:0}
+    .tokens{display:flex;flex-wrap:wrap;gap:.8rem}
+    .token{
+      background:var(--panel2);border:1px solid var(--line);
+      padding:.75rem 1.1rem;border-radius:12px;
+      font-family:"JetBrains Mono",monospace;font-size:clamp(22px,2vw,32px);
+    }
+    .codewrap{
+      width:min(1100px,100%);background:#080a0d;border:1px solid #242a31;
+      border-radius:18px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.25);
+    }
+    .dots{height:38px;background:#11151a;border-bottom:1px solid #242a31;display:flex;align-items:center;gap:7px;padding:0 14px}
+    .dot{width:9px;height:9px;border-radius:50%;background:#4a525b}
+    pre{
+      margin:0;padding:1.5rem 1.7rem;overflow:auto;
+      color:#edf1f4;font:500 clamp(20px,1.72vw,30px)/1.55 "JetBrains Mono",monospace;
+    }
+    .kw{color:#d7ff4f}.str{color:#9cf0ff}.num{color:#ffbd7b}.type{color:#d8a8ff}.com{color:#68737e}
+    .challenge{
+      border-left:5px solid var(--accent);padding:1rem 0 1rem 2rem;
+      max-width:1000px;margin:0 0 2rem;
+    }
+    .challenge .label{font-size:13px;text-transform:uppercase;letter-spacing:.14em;color:var(--accent);font-weight:800;margin-bottom:.7rem}
+    .challenge p{margin:0;color:var(--text);font-size:clamp(34px,3.45vw,58px);line-height:1.2}
+    .pause{
+      color:var(--muted);font-size:clamp(20px,1.55vw,27px);
+      margin-top:1.2rem
+    }
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;width:min(1250px,100%)}
+    .big-number{font-size:clamp(70px,11vw,170px);font-weight:800;line-height:.8;color:var(--accent)}
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:1rem;width:min(1000px,100%)}
+    .compare .side{padding:1.3rem;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
+    .side h3{margin:0 0 .8rem;font-size:28px}.side code{font:24px "JetBrains Mono";color:var(--accent2)}
+    .footer-note{position:absolute;bottom:4vh;left:6vw;color:#68737e;font-size:12px;letter-spacing:.06em}
+    .controls{
+      position:absolute;right:2vw;bottom:2vh;display:flex;gap:.55rem;z-index:50;pointer-events:auto
+    }
+    .controls button{
+      background:rgba(18,22,27,.88);border:1px solid var(--line);color:var(--text);
+      width:56px;height:48px;border-radius:10px;cursor:pointer;font-size:24px;pointer-events:auto
+    }
+    .controls button:hover{border-color:var(--accent);color:var(--accent)}
+    .slide-enter-active,.slide-leave-active{transition:opacity .18s,transform .18s}
+    .slide-enter-from{opacity:0;transform:translateX(20px)}
+    .slide-leave-to{opacity:0;transform:translateX(-20px)}
+    @media(max-width:800px){
+      .grid,.split,.compare{grid-template-columns:1fr}
+      .slide{padding-left:7vw;padding-right:7vw}
+      .topline{left:7vw;right:7vw}
+    }
+  
+    @media (min-width:1400px) {
+      .slide { padding-top:6vh; padding-bottom:7vh; }
+      .grid { gap:1.6rem; }
+      .card { padding:1.8rem; min-height:210px; }
+      .codewrap { width:min(1280px,100%); }
+    }
+</style>
+</head>
+<body>
+<div id="app">
+  <div class="deck" tabindex="0" @keydown="key">
+    <transition name="slide" mode="out-in">
+      <section class="slide" :key="current">
+        <div class="topline"><span>Java · POO</span><span>{{ current+1 }} / {{ slides.length }}</span></div>
+
+
+        <!-- 1 -->
+        <template v-if="current===0">
+          <div class="kicker">Java · POO</div>
+          <h1>Del objeto<br>al <span class="accent">programa que decide</span></h1>
+          <p class="subtitle">Tipos de datos · operadores · estructuras de control</p>
+        </template>
+
+        <!-- 2 -->
+        <template v-else-if="current===1">
+          <div class="kicker">Activación · 3 min</div>
+          <h2>Antes de Java…<br>¿qué ya sabemos?</h2>
+          <div class="grid">
+            <div class="card"><h3 class="accent">Python</h3><p>¿Cómo declaras una variable?</p></div>
+            <div class="card"><h3 class="accent">Decisiones</h3><p>¿Cómo haces un <code>if</code>?</p></div>
+            <div class="card"><h3 class="accent">Lógica</h3><p>¿Cómo expresas “y”, “o” y “no”?</p></div>
+          </div>
+          <p class="pause">⏸ Piensa primero. No escribas Java todavía.</p>
+        </template>
+
+        <!-- 3 -->
+        <template v-else-if="current===2">
+          <div class="kicker">Mapa rápido</div>
+          <h2>Tipos de datos</h2>
+          <div class="grid">
+            <div class="card"><h3 class="accent">Enteros</h3><p><code>int</code></p><div class="tokens"><span class="token">int edad = 5;</span></div></div>
+            <div class="card"><h3 class="accent">Decimales</h3><p><code>double</code></p><div class="tokens"><span class="token">double peso = 40.5;</span></div></div>
+            <div class="card"><h3 class="accent">Texto</h3><p><code>String</code></p><div class="tokens"><span class="token">String nombre = "Porky";</span></div></div>
+          </div>
+        </template>
+
+        <!-- 4 -->
+        <template v-else-if="current===3">
+          <div class="kicker">Tipos de datos · Java</div>
+          <h2>También tenemos</h2>
+          <div class="grid">
+            <div class="card"><h3 class="accent">Verdadero / falso</h3><p><code>boolean</code></p><div class="tokens"><span class="token">boolean vacuna = true;</span></div></div>
+            <div class="card"><h3 class="accent">Un carácter</h3><p><code>char</code></p><div class="tokens"><span class="token">char talla = 'M';</span></div></div>
+            <div class="card"><h3 class="accent">La forma</h3><p>Tipo + nombre + valor</p><div class="tokens"><span class="token">int edad = 5;</span></div></div>
+          </div>
+          <p class="pause">En Java, el tipo de la variable queda declarado explícitamente.</p>
+        </template>
+
+        <!-- 5 -->
+        <template v-else-if="current===4">
+          <div class="kicker">Mapa rápido</div>
+          <h2>Operadores</h2>
+          <div class="grid">
+            <div class="card"><h3 class="accent">Aritméticos</h3><p><code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code></p></div>
+            <div class="card"><h3 class="accent">Comparación</h3><p><code>==</code> <code>!=</code> <code>&gt;</code> <code>&lt;</code> <code>&gt;=</code> <code>&lt;=</code></p></div>
+            <div class="card"><h3 class="accent">Lógicos</h3><p><code>&amp;&amp;</code> <code>||</code> <code>!</code></p></div>
+          </div>
+        </template>
+
+        <!-- 6 -->
+        <template v-else-if="current===5">
+          <div class="kicker">Estructuras de control</div>
+          <h2>La idea ya la conocen.<br>Veamos cómo se escribe en Java.</h2>
+          <div class="tokens">
+            <span class="token">if</span><span class="token">else</span><span class="token">else if</span><span class="token">switch</span>
+            <span class="token">for</span><span class="token">while</span>
+          </div>
+        </template>
+
+        <!-- 7 -->
+        <template v-else-if="current===6">
+          <div class="kicker">Estructuras de control · Java</div>
+          <h2>Una decisión</h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (condicion) {
+    <span class="com">// instrucciones si es verdadero</span>
+}</pre>
+          </div>
+          <p class="pause"><code>if</code> evalúa una condición. Si es verdadera, entra al bloque.</p>
+        </template>
+
+        <!-- 8 -->
+        <template v-else-if="current===7">
+          <div class="kicker">Estructuras de control · Java</div>
+          <h2>Dos caminos</h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (condicion) {
+    <span class="com">// camino 1</span>
+} <span class="kw">else</span> {
+    <span class="com">// camino 2</span>
+}</pre>
+          </div>
+          <p class="pause">Y si hay más de dos posibilidades: <code>else if</code>.</p>
+        </template>
+
+        <!-- 9 -->
+        <template v-else-if="current===8">
+          <div class="kicker">Estructuras de control · Java</div>
+          <h2>Varias posibilidades</h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (condicion1) {
+    <span class="com">// camino 1</span>
+} <span class="kw">else if</span> (condicion2) {
+    <span class="com">// camino 2</span>
+} <span class="kw">else</span> {
+    <span class="com">// resto de casos</span>
+}</pre>
+          </div>
+          <p class="pause">Más adelante veremos <code>switch</code> para elegir entre opciones concretas.</p>
+        </template>
+
+        <!-- 10 -->
+        <template v-else-if="current===9">
+          <div class="kicker">Pregunta rápida · 2 min</div>
+          <h2>Predice antes de ejecutar.</h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="type">int</span> edad = <span class="num">5</span>;
+<span class="type">double</span> peso = <span class="num">40.5</span>;
+<span class="type">boolean</span> vacuna = <span class="kw">true</span>;
+
+System.out.println(edad &gt; <span class="num">2</span>);
+System.out.println(peso &gt; <span class="num">50</span>);
+System.out.println(vacuna);</pre>
+          </div>
+          <p class="pause">⏸ ¿Qué imprime cada línea? ¿Qué tipo de dato produce cada comparación?</p>
+        </template>
+
+        <!-- 8 -->
+        <template v-else-if="current===10">
+          <div class="kicker">Volvemos al canil</div>
+          <h2>Ya tenemos objetos.</h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="type">Perro</span> perro_de_camilo = <span class="kw">new</span> <span class="type">Perro</span>();
+
+perro_de_camilo.nombre = <span class="str">"Porky"</span>;
+perro_de_camilo.edad = <span class="num">5</span>;
+perro_de_camilo.peso = <span class="num">40.5</span>;
+perro_de_camilo.vacuna = <span class="kw">true</span>;</pre>
+          </div>
+          <p class="pause">No empezamos de cero: vamos a hacer crecer este programa.</p>
+        </template>
+
+        <!-- 9 -->
+        <template v-else-if="current===11">
+          <div class="kicker">Desafío 1 · 5 min</div>
+          <div class="challenge"><div class="label">Una primera decisión</div><p>Porky tiene 5 años.<br>¿Cómo hacemos que Java nos diga si tiene más de 2?</p></div>
+          <p class="pause">⏸ Ellos programan primero. Después comparamos estrategias.</p>
+        </template>
+
+        <!-- 10 -->
+        <template v-else-if="current===12">
+          <div class="kicker">Una posible solución</div>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (perro_de_camilo.edad &gt; <span class="num">2</span>) {
+    System.out.println(<span class="str">"Tiene más de 2 años"</span>);
+}</pre>
+          </div>
+          <p class="pause"><span class="accent">Nombre formal:</span> operador relacional <code>&gt;</code> + estructura condicional <code>if</code>.</p>
+        </template>
+
+        <!-- 11 -->
+        <template v-else-if="current===13">
+          <div class="kicker">Ejercicio corto · 3 min</div>
+          <div class="challenge"><div class="label">Ahora tú</div><p>Sin mirar la solución anterior: muestra “Perro pesado” si el peso de Porky es mayor a 20 kg.</p></div>
+          <p class="pause">⏸ Resuélvelo y prueba qué ocurre si cambias el peso.</p>
+        </template>
+
+        <!-- 12 -->
+        <template v-else-if="current===14">
+          <div class="kicker">Desafío 2 · 5 min</div>
+          <div class="challenge"><div class="label">Dos caminos</div><p>Si Porky está vacunado, puede ingresar.<br>Si no, no puede.</p></div>
+          <p class="pause">⏸ ¿Qué necesitan para tener dos caminos?</p>
+        </template>
+
+        <!-- 13 -->
+        <template v-else-if="current===15">
+          <div class="kicker">Una posible solución</div>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (perro_de_camilo.vacuna) {
+    System.out.println(<span class="str">"Puede ingresar"</span>);
+} <span class="kw">else</span> {
+    System.out.println(<span class="str">"No puede ingresar"</span>);
+}</pre>
+          </div>
+          <p class="pause"><span class="accent">Nombre formal:</span> <code>boolean</code> como condición + <code>if / else</code>.</p>
+        </template>
+
+        <!-- 14 -->
+        <template v-else-if="current===16">
+          <div class="kicker">Desafío 3 · 6 min</div>
+          <div class="challenge"><div class="label">Combinar información</div><p>Para ingresar debe estar vacunado <strong>y</strong> tener menos de 10 años.</p></div>
+          <p class="pause">⏸ ¿Cómo expresamos “y” en Java?</p>
+        </template>
+
+        <!-- 15 -->
+        <template v-else-if="current===17">
+          <div class="kicker">Una posible solución</div>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (perro_de_camilo.vacuna &amp;&amp; perro_de_camilo.edad &lt; <span class="num">10</span>) {
+    System.out.println(<span class="str">"Puede ingresar"</span>);
+} <span class="kw">else</span> {
+    System.out.println(<span class="str">"No puede ingresar"</span>);
+}</pre>
+          </div>
+          <div class="tokens" style="margin-top:1rem"><span class="token">&amp;&amp; · y</span><span class="token">|| · o</span><span class="token">! · no</span></div>
+        </template>
+
+        <!-- 16 -->
+        <template v-else-if="current===18">
+          <div class="kicker">Ejercicio corto · 4 min</div>
+          <div class="challenge"><div class="label">Cambia la regla</div><p>Ahora puede ingresar si está vacunado <strong>o</strong> tiene menos de 2 años.</p></div>
+          <p class="pause">⏸ Escribe la condición usando un operador lógico. No copies la anterior.</p>
+        </template>
+
+        <!-- 17 -->
+        <template v-else-if="current===19">
+          <div class="kicker">Desafío 4 · 6 min</div>
+          <div class="challenge"><div class="label">Más de dos caminos</div><p>Clasifica a Porky: cachorro, adulto o adulto mayor.</p></div>
+          <p class="pause">⏸ Piensa qué condición debe revisarse primero.</p>
+        </template>
+
+        <!-- 18 -->
+        <template v-else-if="current===20">
+          <div class="kicker">Una posible solución</div>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">if</span> (perro_de_camilo.edad &lt; <span class="num">2</span>) {
+    System.out.println(<span class="str">"Cachorro"</span>);
+} <span class="kw">else if</span> (perro_de_camilo.edad &lt; <span class="num">7</span>) {
+    System.out.println(<span class="str">"Adulto"</span>);
+} <span class="kw">else</span> {
+    System.out.println(<span class="str">"Adulto mayor"</span>);
+}</pre>
+          </div>
+          <p class="pause"><span class="accent">Nombre formal:</span> <code>if / else if / else</code>.</p>
+        </template>
+
+        <!-- 19 -->
+        <template v-else-if="current===21">
+          <div class="kicker">Ejercicios propuestos · 6 min</div>
+          <h2>Ahora sin receta.</h2>
+          <div class="grid">
+            <div class="card"><h3 class="accent">A</h3><p>Muestra “Perro pequeño” si pesa menos de 10 kg.</p></div>
+            <div class="card"><h3 class="accent">B</h3><p>Muestra “Vacunado” o “Pendiente” según el atributo <code>vacuna</code>.</p></div>
+            <div class="card"><h3 class="accent">C</h3><p>Permite ingresar solo si pesa menos de 50 kg y está vacunado.</p></div>
+          </div>
+          <p class="pause">⏸ Elige uno. Si terminas, intenta los tres.</p>
+        </template>
+
+        <!-- 20 -->
+        <template v-else-if="current===22">
+          <div class="kicker">Desafío 5 · 5 min</div>
+          <div class="challenge"><div class="label">El encargado del canil</div><p>Quiere elegir una operación desde un menú.</p></div>
+          <div class="tokens"><span class="token">1 · Registrar</span><span class="token">2 · Mostrar</span><span class="token">3 · Revisar vacuna</span><span class="token">4 · Salir</span></div>
+          <p class="pause">⏸ Primero piensen cómo lo resolverían. ¿Conviene encadenar muchos <code>if</code>?</p>
+        </template>
+
+        <!-- 21 -->
+        <template v-else-if="current===23">
+          <div class="kicker">Una posible solución</div>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="kw">switch</span> (opcion) {
+    <span class="kw">case</span> <span class="num">1</span>:
+        System.out.println(<span class="str">"Registrar perro"</span>);
+        <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">2</span>:
+        System.out.println(<span class="str">"Mostrar perros"</span>);
+        <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">3</span>:
+        System.out.println(<span class="str">"Revisar vacunación"</span>);
+        <span class="kw">break</span>;
+    <span class="kw">case</span> <span class="num">4</span>:
+        System.out.println(<span class="str">"Salir"</span>);
+        <span class="kw">break</span>;
+}</pre>
+          </div>
+          <p class="pause"><span class="accent">Nombre formal:</span> selección múltiple con <code>switch / case / break</code>.</p>
+        </template>
+
+        <!-- 22 -->
+        <template v-else-if="current===24">
+          <div class="kicker">Ejercicio de transferencia · 5 min</div>
+          <div class="challenge"><div class="label">Cambia el contexto</div><p>Imagina un sistema de notas: 1 = ingresar nota, 2 = calcular promedio, 3 = mostrar resultado, 4 = salir.</p></div>
+          <p class="pause">⏸ Sin copiar el ejemplo del canil, arma el <code>switch</code>.</p>
+        </template>
+
+        <!-- 23 -->
+        <template v-else-if="current===25">
+          <div class="kicker">Metacognición · 4 min</div>
+          <h2>Para cerrar: mira tu propio aprendizaje.</h2>
+          <div class="grid">
+            <div class="card"><h3 class="accent">1</h3><p>¿Qué concepto de Java entendí mejor hoy?</p></div>
+            <div class="card"><h3 class="accent">2</h3><p>¿Qué parte me costó más y por qué?</p></div>
+            <div class="card"><h3 class="accent">3</h3><p>¿Qué puedo resolver ahora que antes no podía?</p></div>
+          </div>
+          <p class="pause">Escribe una respuesta breve. No buscamos “la respuesta correcta”.</p>
+        </template>
+
+        <!-- 24 -->
+        <template v-else-if="current===26">
+          <div class="kicker">Cierre conceptual</div>
+          <h2>Una misma idea.<br><span class="accent">Otra forma de escribirla.</span></h2>
+          <div class="compare">
+            <div class="side"><h3>Lo que ya sabías</h3><code>Python → decisiones, operadores, tipos</code></div>
+            <div class="side"><h3>Lo que practicamos hoy</h3><code>Java → la misma lógica + sintaxis explícita</code></div>
+          </div>
+        </template>
+
+        <!-- 25 -->
+        <template v-else-if="current===27">
+          <div class="kicker">El próximo problema</div>
+          <div class="split">
+            <div><div class="big-number">300</div><p>perros</p></div>
+            <div><h2>¿Qué pasa si el programa crece?</h2><p>Tenemos decisiones. Ahora necesitaremos repetir acciones y manejar muchos datos.</p></div>
+          </div>
+          <p class="pause">Ciclos + colecciones: el siguiente paso.</p>
+        </template>
+
+        <!-- 26 -->
+        <template v-else-if="current===28">
+          <div class="kicker">Adelanto · Scanner</div>
+          <h2>Hasta ahora,<br>nosotros escribimos los datos.</h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre>perro_de_camilo.edad = <span class="num">5</span>;</pre>
+          </div>
+          <p class="subtitle">¿Cómo hacemos para que los escriba la persona que usa el programa?</p>
+        </template>
+
+        <!-- 27 -->
+        <template v-else-if="current===29">
+          <div class="kicker">Adelanto</div>
+          <h2><span class="accent">Scanner</span></h2>
+          <div class="codewrap">
+            <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+            <pre><span class="type">Scanner</span> sc = <span class="kw">new</span> <span class="type">Scanner</span>(System.in);
+
+System.out.print(<span class="str">"Ingresa la edad: "</span>);
+<span class="type">int</span> edad = sc.nextInt();</pre>
+          </div>
+          <p class="pause">No lo desarrollamos hoy. Si quieren adelantarse, investiguen cómo funciona.</p>
+        </template>
+
+        <!-- 28 -->
+        <template v-else>
+          <div class="kicker">Fin</div>
+          <h1>¿Qué construimos hoy?</h1>
+          <div class="tokens">
+            <span class="token">tipos</span><span class="token">operadores</span><span class="token">if</span><span class="token">else</span>
+            <span class="token">else if</span><span class="token">&& || !</span><span class="token">switch</span>
+          </div>
+          <p class="subtitle">No aprendimos a programar de nuevo. Aprendimos a expresar en Java ideas que ya conocemos.</p>
+        </template>
+        <div class="footer-note">← → navegar · F / ⛶ pantalla completa · Home / End</div>
+      </section>
+    </transition>
+
+    <div class="controls"><button tabindex="0" @click.stop="toggleFullscreen" aria-label="Pantalla completa">⛶</button>
+      <button tabindex="0" @click.stop="prev" aria-label="Anterior">←</button>
+      <button tabindex="0" @click.stop="next" aria-label="Siguiente">→</button>
+    </div>
+    <div class="progress" :style="{width: ((current+1)/slides.length*100)+'%'}"></div>
+  </div>
+</div>
+
+<script>
+const { createApp } = Vue;
+createApp({
+  data(){ return { current:0, slides:Array.from({length:30}) } },
+  methods:{
+    next(){ if(this.current < this.slides.length-1) this.current++ },
+    prev(){ if(this.current > 0) this.current-- },
+    key(e){
+      if(e.key==='ArrowRight' || e.key===' '){ e.preventDefault(); this.next(); }
+      if(e.key==='ArrowLeft'){ e.preventDefault(); this.prev(); }
+      if(e.key.toLowerCase()==='f'){
+        const el=document.documentElement;
+        if(!document.fullscreenElement) el.requestFullscreen?.();
+        else document.exitFullscreen?.();
+      }
+      if(e.key==='Home'){this.current=0}
+      if(e.key==='End'){this.current=this.slides.length-1}
+    },
+    toggleFullscreen(){
+      const el=document.documentElement;
+      if(!document.fullscreenElement) el.requestFullscreen?.();
+      else document.exitFullscreen?.();
+    }
+  },  mounted(){
+    window.addEventListener('keydown', this.key);
+    this.$el.querySelector('.deck')?.focus();
+  },
+  beforeUnmount(){
+    window.removeEventListener('keydown', this.key);
+  }
+}).mount('#app');
+</script>
+</body>
+</html>
