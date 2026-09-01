@@ -7,7 +7,11 @@ public class Character {
 
 
 
-   public void validarPuntosMagicos(int pmRecibidos){
+    public void atacar(){
+        System.out.println("Atacando!!");
+    }
+
+    public void validarPuntosMagicos(int pmRecibidos){
     if (pmRecibidos < 0) {
         System.out.println("LOS PM NO PUEDEN QUEDAR NEGATIOS");
         
