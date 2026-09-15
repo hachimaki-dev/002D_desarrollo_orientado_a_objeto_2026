@@ -23,6 +23,7 @@ public class Tienda {
             System.out.println("4. Vender producto");
             System.out.println("5. Resumen del inventario");
             System.out.println("6. Salir");
+            System.out.println("7. Agregar datos de prueba");
 
             String opcion_menu = sc.nextLine();
 
@@ -36,7 +37,7 @@ public class Tienda {
                     break;
 
                 case "3":
-
+                    buscarProductoPorNombre();
                     break;
 
                 case "4":
@@ -49,6 +50,8 @@ public class Tienda {
                 case "6":
 
                     break;
+                case "7":
+                    agregarDatosDePrueba();
 
                 default:
                     break;
@@ -87,7 +90,7 @@ public class Tienda {
         }
     }
 
-    static public void registrarProductoFisico(){
+    static public void registrarProductoFisico() {
         System.out.println("Ingrese el nombre del juego");
         String nombre = sc.nextLine();
 
@@ -104,12 +107,12 @@ public class Tienda {
 
         if (coleccion_juegos_fisicos.add(juego)) {
             System.out.println("Juego agregado");
-        }else{
+        } else {
             System.err.println("No se pudo agregar :C");
         }
     }
 
-    static public void registrarProductoDigital(){
+    static public void registrarProductoDigital() {
         System.out.println("Ingrese el nombre del juego");
         String nombre = sc.nextLine();
 
@@ -129,22 +132,64 @@ public class Tienda {
 
         if (coleccion_juegos_digitales.add(juego)) {
             System.out.println("Juego agregado");
-        }else{
+        } else {
             System.err.println("No se pudo agregar :C");
         }
     }
 
+    static public void listarInventario() {
+        System.out.println("****INVENTARIO DE JUEGOS******");
 
-    static public void listarInventario(){
-        System.out.println("*****BODEGA******");
+        System.out.println("****INVENTARIO DE JUEGOS Físicos******");
 
-        for (ProductoFisico productoFisico : coleccion_juegos_fisicos) {
-            System.out.println( productoFisico.mostrarInfo() );
+        for (ProductoFisico juego_fisico : coleccion_juegos_fisicos) {
+            System.out.println(juego_fisico.mostrarInfo());
+            ;
         }
 
-        for (ProductoDigital productoDigital : coleccion_juegos_digitales) {
-            System.out.println( productoDigital.mostrarInfo() );
+        System.out.println("****INVENTARIO DE JUEGOS DIGITAL******");
+        for (ProductoDigital juego_digital : coleccion_juegos_digitales) {
+            System.out.println(juego_digital.mostrarInfo());
         }
+
     }
 
+    static void agregarDatosDePrueba() {
+        System.out.println("Agregando juegos fisicos");
+
+        coleccion_juegos_fisicos.add(new ProductoFisico("Pokémon Perla", 27000, 20, 3000));
+
+        coleccion_juegos_fisicos.add(new ProductoFisico("Pokémon Diamante", 27000, 14, 3000));
+
+        coleccion_juegos_fisicos.add(new ProductoFisico("GTA V", 32000, 26, 3000));
+
+        coleccion_juegos_fisicos.add(new ProductoFisico("Majoras Mask", 150000, 2, 3000));
+
+        coleccion_juegos_fisicos.add(new ProductoFisico("PayDay2", 6000, 6, 3000));
+
+        coleccion_juegos_digitales.add(new ProductoDigital("Halo", 9000, 20, 45, "PC"));
+
+        coleccion_juegos_digitales.add(new ProductoDigital("Balatro", 12000, 46, 5, "PC"));
+
+        System.out.println("********DATOS DE PRUEBA CARGADOS******");
+
+    }
+
+
+    static void buscarProductoPorNombre(){
+        System.out.println("Ingrese nombre del juego: ");
+        String nombre_juego =  sc.nextLine();
+
+        for(ProductoFisico juego_fisico : coleccion_juegos_fisicos){
+            if (juego_fisico.getNombre().contains(nombre_juego)) {
+                System.out.println(juego_fisico.mostrarInfo());
+            }
+        }
+
+        for(ProductoDigital juego_digital : coleccion_juegos_digitales){
+            if (juego_digital.getNombre().contains(nombre_juego)) {
+                System.out.println(juego_digital.mostrarInfo());
+            }
+        }
+    }
 }
