@@ -89,15 +89,19 @@ int opcion_elegida = Integer.parseInt(sc.nextLine());
 
     }
 
-    static String buscarPatente(){
-        
-        while(true){
+    static void buscarPatente(){
+        if(coleccion_vehiculos.isEmpty()){
+            System.out.println("No se puede acceder, no hay patentes ni vehiculos registrados.");
+        }
+        else{
+        boolean encontrado = false;
+        while(!encontrado){
             System.out.print("Ingrese la patente del vehiculo a buscar: ");
             String patente_buscada = sc.nextLine();
             for (Vehiculo vehiculo : coleccion_vehiculos) {
-            if(patente_buscada.equals(vehiculo.getPatente())){
+            if(patente_buscada.equalsIgnoreCase(vehiculo.getPatente())){
                 System.out.println("Se ha encontrado: " + vehiculo.mostrarInfo());
-                return patente_buscada;
+                encontrado = true;
             }
             else{
                 System.err.println("No se ha encontrado la patente escrita.");
@@ -110,6 +114,9 @@ int opcion_elegida = Integer.parseInt(sc.nextLine());
 
 
         }
+
+        }
+
         
     }
 
