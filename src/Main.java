@@ -14,7 +14,7 @@ public class Main {
             System.out.println("3. Buscar vehiculo por patente");
             System.out.println("4. Realizar revision");
             System.out.println("5. Resumen de vehiculos");
-            System.out.println("===== TALLER MECANICO =====");
+            System.out.println("6. Salir");
             System.out.print("Seleccione una opcion: ");
             String opt =sc.nextLine();
             switch (opt) {
