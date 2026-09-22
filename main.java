@@ -52,7 +52,7 @@ public class main {
         System.out.println("2. Particular");
         System.out.println("Seleccione: ");
 
-        int tipoVehiculo = sc.integerparseInt(sc.nextLine);
+        int tipoVehiculo = sc.integerparseInt;
            
         System.out.println("Ingrese patente: ");
         int patente = sc.integerparseInt(sc.nextLine);
