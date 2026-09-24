@@ -3,7 +3,7 @@ public abstract class Vehiculo {
     private String marca;
     private int revisionesPendientes;
 
-    Vehiculo(String patente, String marca, int revisionesPendientes){
+    public Vehiculo(String patente, String marca, int revisionesPendientes){
         this.patente = patente;
         this.marca = marca;
         this.revisionesPendientes = revisionesPendientes;
@@ -35,7 +35,8 @@ public abstract class Vehiculo {
     public String mostrarInfo(){
        return "Patente: " + this.patente +
                 "Marca: " + this.marca +
-                "Revisiones Pendientes: " + this.revisionesPendientes;
+                "Revisiones Pendientes: " + this.revisionesPendientes +
+                "Costo REvisión: " + this.calcularCostoRevision();
 
     }
 

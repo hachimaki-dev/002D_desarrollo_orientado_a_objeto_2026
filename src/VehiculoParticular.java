@@ -1,7 +1,7 @@
 public class VehiculoParticular extends Vehiculo {
     private int numPasajeros;
 
-    VehiculoParticular(String patente, String marca, int revisionesPendientes, int numPasajeros){
+    public VehiculoParticular(String patente, String marca, int revisionesPendientes, int numPasajeros){
         super(patente, marca, revisionesPendientes);
         this.numPasajeros = numPasajeros;
 
@@ -18,7 +18,7 @@ public class VehiculoParticular extends Vehiculo {
 
     @Override
     public String mostrarInfo() {
-        return super.mostrarInfo() + "Tipo particular.  Numero de pasajeros: " + this.numPasajeros;
+        return super.mostrarInfo() + "Tipo: Particular | Numero de pasajeros: " + this.numPasajeros;
     }
 
 
