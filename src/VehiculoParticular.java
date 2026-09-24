@@ -3,7 +3,7 @@ public class VehiculoParticular extends Vehiculo{
 
     public VehiculoParticular(String patente, String marca, int revisionesPendientes, int numPasajeros){
         super(patente, marca, revisionesPendientes);
-        numPasajeros = this.numPasajeros;
+        this.numPasajeros= numPasajeros;
     }
 
     public int getNumPasajeros(){

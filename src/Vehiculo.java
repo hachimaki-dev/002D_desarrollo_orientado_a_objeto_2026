@@ -25,9 +25,8 @@ abstract class Vehiculo {
         this.revisionesPendientes= revisionesPendientes;
     }
 
-    public int calcularCostoRevision(){
-        return 0;
-    }
+    public abstract int calcularCostoRevision();
+
     public String mostrarInfo(){
         return "La patente es: " + patente + ", la marca es: " + marca + ", el costo de revision es: " + calcularCostoRevision() + ", las revisiones pendientes son: " + revisionesPendientes;
 

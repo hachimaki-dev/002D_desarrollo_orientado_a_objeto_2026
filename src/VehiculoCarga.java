@@ -3,7 +3,7 @@ public class VehiculoCarga extends Vehiculo{
 
     public VehiculoCarga(String patente, String marca, int revisionesPendientes, int pesoMaxCarga){
         super(patente, marca, revisionesPendientes);
-        pesoMaxCarga = this.pesoMaxCarga;
+        this.pesoMaxCarga= pesoMaxCarga;
     }
 
     public int getPesoMaxCarga(){
