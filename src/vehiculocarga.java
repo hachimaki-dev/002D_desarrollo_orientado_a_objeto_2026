@@ -1,7 +1,8 @@
 public class vehiculocarga extends vehiculo {
     private int carga_maxima;
 
-    public vehiculocarga(String patente, string marca, int revisiones_pendientes, int carga_maxima) {
+    public vehiculocarga(String patente, String marca, int revisiones_pendientes, int carga_maxima) {
+        super(patente, marca, revisiones_pendientes);
         this.carga_maxima = carga_maxima;
     }
     
@@ -14,6 +15,6 @@ public class vehiculocarga extends vehiculo {
     @Override 
     public String mostrarinformacion() {
 
-        return "carga: " + getpatente() + "marca: " getmarca() + "carga max:" + carga_maxima + "kg" + calcular_costo_revision()
+        return "carga: " + getpatente() + "marca: " + getmarca() + "carga max:" + carga_maxima + "kg" + calcular_costo_revision();
     }
 }

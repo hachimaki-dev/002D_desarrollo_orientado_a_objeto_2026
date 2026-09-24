@@ -19,8 +19,8 @@ public abstract class vehiculo {
 
     public abstract int calcular_costo_revision();
 
-    public string mostrarinformacion() {
-        return patente + " marca: " + marca + " costo revision: " + calcular_costo_revision() + 
+    public String mostrarinformacion() {
+        return patente + " marca: " + marca + " costo revision: " + calcular_costo_revision();
     }
 
 
