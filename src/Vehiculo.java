@@ -31,7 +31,7 @@ public abstract class Vehiculo {
 
     public String mostrarInfo()
     {
-        String mensaje = " | Patente: " + patente + "| Marca: " + marca + "| Revisiones pendientes: " + revisionesPendientes + "| Costo revisión: $" + calcularCostoRevision();
+        String mensaje = " | Patente: " + patente + " | Marca: " + marca + " | Revisiones pendientes: " + revisionesPendientes + " | Costo revisión: $" + calcularCostoRevision();
 
         return mensaje;
     }

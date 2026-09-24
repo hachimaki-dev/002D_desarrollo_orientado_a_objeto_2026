@@ -22,7 +22,7 @@ public class VehiculoCarga extends Vehiculo {
     @Override
     public String mostrarInfo()
     {
-        String mensaje =  "Carga, " + "| Carga máxima: " + pesoMaxCarga + " kg" + super.mostrarInfo();
+        String mensaje =  "Carga " + "| Carga máxima: " + pesoMaxCarga + " kg" + super.mostrarInfo();
 
         return mensaje;
     }

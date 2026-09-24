@@ -1,8 +1,12 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MisTryCatches
 {
-    public static int tryCatchInt(String mensajeInput, String mensajeError)
+   // static String mensajeNegativos = "Error. Ingrese un valor numérico mayor o igual a 0.";
+    //static String mensajeNumero = "Error. Debe ingresar un valor numérico.";
+
+    public static int tryCatchInt(String mensajeInput)
     {
         Scanner sc = new Scanner(System.in);
 
@@ -17,12 +21,12 @@ public class MisTryCatches
             }
             catch (NumberFormatException e)
             {
-                System.out.println(mensajeError);
+                System.out.println("\nError. Ingrese un valor numérico.\n");
             }
         }
     }
 
-    public static int tryCatchIntPositivo(String mensajeInput, String mensajeError)
+    public static int tryCatchIntPositivo(String mensajeInput)
     {
         Scanner sc = new Scanner(System.in);
 
@@ -35,7 +39,7 @@ public class MisTryCatches
 
                 if (numero < 0)
                 {
-                    System.out.println("Error. Ingrese un valor positivo.");
+                    System.out.println("\nError. Ingrese un número igual o mayor a 0.\n");
                     continue;
                 }
 
@@ -43,12 +47,12 @@ public class MisTryCatches
             }
             catch (NumberFormatException e)
             {
-                System.out.println(mensajeError);
+                System.out.println("\nError. Debe ingresar un valor numérico.\n");
             }
         }
     }
 
-    public static int tryCatchIntPositivoMayorQueCero(String mensajeInput, String mensajeError)
+    public static int tryCatchIntPositivoMayorQueCero(String mensajeInput)
     {
         Scanner sc = new Scanner(System.in);
 
@@ -61,7 +65,7 @@ public class MisTryCatches
 
                 if (numero < 1)
                 {
-                    System.out.println("Error. Ingrese un valor mayor a 0.");
+                    System.out.println("\nError. Ingrese un número mayor a 0.\n");
                     continue;
                 }
 
@@ -69,7 +73,31 @@ public class MisTryCatches
             }
             catch (NumberFormatException e)
             {
-                System.out.println(mensajeError);
+                System.out.println("\nError. Debe ingresar un valor numérico.\n");
+            }
+        }
+    }
+
+    public static int tryCatchNumeroVehiculo(String mensajeInput, ArrayList<Vehiculo> vehiculos)
+    {
+        while (true)
+        {
+            int numeroVehiculo = MisTryCatches.tryCatchIntPositivo(mensajeInput);
+
+            try 
+            {
+                if (vehiculos.get(numeroVehiculo-1).getRevisionesPendientes() == 0)
+                {
+                    System.out.println("\nEse vehículo no tiene revisiones pendientes. Ingrese otro número:\n");
+                }
+                else
+                {
+                    return numeroVehiculo;
+                }
+            }
+            catch (IndexOutOfBoundsException e)
+            {
+                System.out.println("\nError. Debe ingresar el número de un vehículo que se mostró anteriormente.\n");
             }
         }
     }
