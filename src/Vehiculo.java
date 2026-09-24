@@ -10,14 +10,14 @@ public abstract  class Vehiculo {
     }
 
     public String getPatente(){
-        return this.patente;
+        return patente;
     }
     public String getMarca(){
-        return this.marca;
+        return marca;
     }
 
     public int getRevisionesPendientes(){
-        return this.revisionesPendientes;
+        return revisionesPendientes;
     }
 
     public void setRevisionesPendientes(int revisionesPendientes){
@@ -31,6 +31,6 @@ public abstract  class Vehiculo {
     public abstract int calcularCostoRevision();
 
     public String mostrarInfo(){
-        return "Patente: " +  patente + ", Marca: " + marca + ", Revisiones pendientes: " + revisionesPendientes; 
+        return "Patente: " +  patente + "| Marca: " + marca +  "| Costo de revision: " + calcularCostoRevision() + "| Revisiones pendientes: " + revisionesPendientes; 
     }
 }

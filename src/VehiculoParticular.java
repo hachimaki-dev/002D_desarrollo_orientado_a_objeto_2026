@@ -7,7 +7,7 @@ public class VehiculoParticular extends Vehiculo{
     }
 
     public int getNumPasajeros(){
-        return this.numPasajeros;
+        return numPasajeros;
     }
 
     @Override public int calcularCostoRevision(){
@@ -15,7 +15,7 @@ public class VehiculoParticular extends Vehiculo{
     }
 
     @Override public String mostrarInfo() {
-        return super.mostrarInfo() + ", Tipo: Particular, Numero de pasajeros: " + getNumPasajeros();
+        return super.mostrarInfo() + "| Tipo: Particular" + "| Numero de pasajeros: " + getNumPasajeros();
     }
 
 

@@ -6,13 +6,13 @@ public class VehiculoCarga extends Vehiculo {
     }
 
     public int getPesoMaxCarga(){
-        return this.pesoMaxCarga;
+        return pesoMaxCarga;
     }
 
     @Override public int calcularCostoRevision(){
         return 30000 + (pesoMaxCarga * 5);
     }
     @Override public String mostrarInfo() {
-        return super.mostrarInfo() + ", Tipo: Carga, Peso maximo de carga: " + getPesoMaxCarga();
+        return super.mostrarInfo() + "| Tipo: Carga " + "| Peso maximo de carga: " + getPesoMaxCarga();
     }
 }
