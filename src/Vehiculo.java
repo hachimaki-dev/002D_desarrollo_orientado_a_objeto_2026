@@ -14,10 +14,10 @@ public abstract class Vehiculo {
     }
 
     public void setRevisionesPendientes(int revisionesPendientes){
-        if (revisionesPendientes < 0){
+        if (getRevisionesPendientes() == 0){
             System.out.println("Las revisiones no pueden ser menores a 0");
         } else{
-            this.revisionesPendientes = revisionesPendientes;
+            this.revisionesPendientes -= 1;
         }
     }
 
