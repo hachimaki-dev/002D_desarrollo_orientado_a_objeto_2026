@@ -1,17 +1,17 @@
-abstract class  Vehículo 
+abstract class  Vehiculo 
 {
     protected String patente;
     protected String marca;
     protected int revisionesPendientes;
 
-    public Vehículo(String patente, String marca, int revisionesPendientes)
+    public Vehiculo(String patente, String marca, int revisionesPendientes)
     {
         this.patente = patente;
         this.marca = marca;
         this.revisionesPendientes = revisionesPendientes;
     }
 
-    public Vehículo(){}
+    public Vehiculo(){}
 
     public String getPatente()
     {
@@ -44,6 +44,10 @@ abstract class  Vehículo
     }
 
     abstract int calcularCostoRevision();
+
+    public void reducirRevisionesPendientes(){
+        revisionesPendientes -= 1;
+    }
 
     public String mostrarInfo()
     {

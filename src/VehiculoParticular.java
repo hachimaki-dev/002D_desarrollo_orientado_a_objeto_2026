@@ -1,8 +1,8 @@
-public class VehículoParticular extends Vehículo
+public class VehiculoParticular extends Vehiculo
 {
     private int numeroDePasajeros;
 
-    public VehículoParticular(String patente, String marca, int revisionesPendientes)
+    public VehiculoParticular(String patente, String marca, int revisionesPendientes, int numeroDePasajeros)
     {
         super(patente, marca, revisionesPendientes);
         setMarca(marca);

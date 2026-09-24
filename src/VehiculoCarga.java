@@ -1,8 +1,8 @@
-public class VehículoCarga extends Vehículo
+public class VehiculoCarga extends Vehiculo
 {
     private int pesoMaxCarga;
 
-    public VehículoCarga(String patente, String marca, int revisionesPendientes, int pesoMaxCarga)
+    public VehiculoCarga(String patente, String marca, int revisionesPendientes, int pesoMaxCarga)
     {
         super(patente, marca, revisionesPendientes);
         setMarca(marca);
