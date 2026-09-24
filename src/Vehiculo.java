@@ -1,32 +1,31 @@
 public abstract class Vehiculo {
-        private String Patente;
-        private String Marca;
-        public int RevisionPendientes;
-       
-        public Vehiculo(String patente, String marca, int RevisionPendientes){
-        }
-
-        public String getPatente() {
-            return Patente;
-        }
-        
-        public String getMarca(){
-            return Marca;
-        }
-
-        public int getRevisionPendientes(){
-            return RevisionPendientes;
-        }
-
-        public void setRevisionPendientes(int revisionPendientes) {
-            RevisionPendientes = revisionPendientes;
-        }   
-
-        public int CostoRevision(){
-            return RevisionPendientes;
-            
-        }
-
-        public void mostrarInfo(String Patente, String Marca, int RevisionPendientes){
-        }
+    private String Patente;
+    private String Marca;
+    private int RevisionesPendientes;
+    
+    public Vehiculo(String Patente, String Marca, int RevisionesPendientes){
+        this.Patente = Patente;
+        this.Marca = Marca;
+        this.RevisionesPendientes = RevisionesPendientes;
+    }
+    public String getPatente(){
+        return Patente;
+    }
+    public String getMarca(){
+        return Marca;
+    }
+    public void setMarca(){
+        Marca = Marca;
+    }
+    public int getRevisionesPendientes(){
+        return RevisionesPendientes;
+    }
+    public void setRevisionesPendientes(int RevisionesPendientes){
+        this.RevisionesPendientes = RevisionesPendientes;
+    }
+    public abstract int CalcularCostoRevision();
+    
+    public String mostrarInfo(){
+        return "Patente : " + Patente + "Marca : " + Marca + "Costo de revision : " + CalcularCostoRevision() + "Revisiones Pendientes : " + RevisionesPendientes;
+    }
 }

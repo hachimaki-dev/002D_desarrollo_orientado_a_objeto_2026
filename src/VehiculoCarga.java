@@ -1,18 +1,22 @@
 public class VehiculoCarga extends Vehiculo{
-    private int pesoMaxCarga;
-    public VehiculoCarga(String Patente, String Marca, int RevisionPendientes, int pesoMaxCarga){
-        super(Patente, Marca, RevisionPendientes);
+    private int CapacidadCarga;
+
+    public VehiculoCarga(String Patente, String Marca, int RevisionesPendientes, int CapacidadCarga){
+        super(Patente, Marca, RevisionesPendientes);
+        this.CapacidadCarga = CapacidadCarga;
     }
 
-    public int getPesoMaxCarga() {
-        return pesoMaxCarga;
+    public int getCapacidadCarga(){
+        return CapacidadCarga;
     }
+
     @Override
-    public int CostoRevision() {
-        return super.CostoRevision();
+    public int CalcularCostoRevision() {
+        return 30000 + (CapacidadCarga * 5);
     }
+
     @Override
-    public void mostrarInfo(String Patente, String Marca, int RevisionPendientes) {
-        super.mostrarInfo(Patente, Marca, RevisionPendientes);
+    public String mostrarInfo() {
+        return "Carga " + "Patente : " + getPatente() + "Marca : " + getMarca() + "Capacidad de carga : " + getCapacidadCarga() + "Costo de revision : $" + CalcularCostoRevision() + "Revisiones pendientes : " + getRevisionesPendientes();        
     }
 }
