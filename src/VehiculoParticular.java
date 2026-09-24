@@ -1,5 +1,3 @@
-package src;
-
 public class VehiculoParticular extends Vehiculo {
     private int numPasajeros;
 

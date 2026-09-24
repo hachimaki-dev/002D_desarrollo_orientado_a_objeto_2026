@@ -1,5 +1,3 @@
-package src;
-
 public class VehiculoCarga extends Vehiculo {
     private int pesoMaxCarga;
 

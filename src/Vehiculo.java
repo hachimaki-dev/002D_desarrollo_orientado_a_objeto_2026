@@ -1,5 +1,3 @@
-package src;
-
 abstract class Vehiculo {
     private String patente;
     private String marca;

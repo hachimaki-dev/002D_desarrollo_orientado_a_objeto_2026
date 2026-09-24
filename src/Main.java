@@ -6,10 +6,8 @@
 //
 // Diferencias con la programación funcional:
 // 1. En POO, cada clase es tratada como un tipo de dato nuevo, a diferencia de la programación funcional donde solo se usan los tipos de datos primitivos (int, float, string, etc.)
-// 2. La POO evita el acceso indebido a los datos de un programa mediante las palabras clave *public*, *protected* y *private*, evitando que cualquier parte del código pueda
-// editar el valor de una variable y asegurándose de que el programador cree validaciones para cambiar un valor.
-
-package src;
+// 2. La POO previene el acceso no deseado a los datos de un programa mediante las palabras clave *public*, *protected* y *private*
+// evitando que cualquier parte del código pueda editar el valor de una variable y asegurándose de que el programador cree validaciones para cambiar un valor.
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -71,6 +69,7 @@ public class Main {
     }
 
     static void registrarVehiculo() {
+        // Submenú de registro de vehículos
         boolean flagSubmenu = true;
         while (flagSubmenu) {
             System.out.println("=== REGISTRO DE VEHÍCULOS ===");
@@ -84,15 +83,26 @@ public class Main {
             String marca;
             int revisionesPendientes;
 
+            // Registro de vehículo particular
             switch (eleccionUsuario) {
                 case "1":
                     // Patente
                     System.out.println("Ingrese la patente del vehículo");
                     patente = sc.nextLine();
 
+                    if (patente.trim().isEmpty()) {
+                        System.out.println("ERROR: La patente del vehículo no puede estar vacía.");
+                        continue;
+                    }
+
                     // Marca
                     System.out.println("Ingrese la marca del vehículo");
                     marca = sc.nextLine();
+
+                    if (marca.trim().isEmpty()) {
+                        System.out.println("ERROR: La marca del vehículo no puede estar vacía.");
+                        continue;
+                    }
 
                     // Revisiones
                     try {
@@ -127,7 +137,7 @@ public class Main {
                         continue;
                     }
 
-                    // Creación de vehículo particular y adición a ArrayList
+                    // Creación del vehículo y adición a ArrayList
                     VehiculoParticular vehiculoParticular = new VehiculoParticular(patente, marca, revisionesPendientes,
                             numPasajeros);
                     listaVehiculos.add(vehiculoParticular);
@@ -135,14 +145,25 @@ public class Main {
                     flagSubmenu = false;
                     break;
 
+                // Registro de vehículo de carga
                 case "2":
                     // Patente
                     System.out.println("Ingrese la patente del vehículo");
                     patente = sc.nextLine();
 
+                    if (patente.trim().isEmpty()) {
+                        System.out.println("ERROR: La patente del vehículo no puede estar vacía.");
+                        continue;
+                    }
+
                     // Marca
                     System.out.println("Ingrese la marca del vehículo");
                     marca = sc.nextLine();
+
+                    if (marca.trim().isEmpty()) {
+                        System.out.println("ERROR: La marca del vehículo no puede estar vacía.");
+                        continue;
+                    }
 
                     // Revisiones
                     try {
@@ -160,7 +181,7 @@ public class Main {
                         continue;
                     }
 
-                    // Número de pasajeros
+                    // Peso máximo
                     int pesoMaxCarga;
                     try {
                         System.out.println(
@@ -178,7 +199,7 @@ public class Main {
                         continue;
                     }
 
-                    // Creación de vehículo carga y adición a ArrayList
+                    // Creación del vehículo y adición a ArrayList
                     VehiculoCarga vehiculoCarga = new VehiculoCarga(patente, marca, revisionesPendientes, pesoMaxCarga);
                     listaVehiculos.add(vehiculoCarga);
                     System.out.println("=== VEHÍCULO DE CARGA REGISTRADO EXITOSAMENTE ===");
@@ -228,27 +249,29 @@ public class Main {
     static void realizarRevision() {
         System.out.println("=== REVISIÓN DE VEHÍCULOS ===");
         for (int i = 0; i < listaVehiculos.size(); i++) {
-            System.out.println("[" + i + "] " + listaVehiculos.get(i).getPatente() + "Revisiones pendientes: "
+            System.out.println("[" + (i + 1) + "] " + listaVehiculos.get(i).getPatente() + " | Revisiones pendientes: "
                     + listaVehiculos.get(i).getRevisionesPendientes());
         }
 
         System.out.println("Ingrese el índice del vehículo a revisar: ");
         try {
             int indiceARevisar = Integer.parseInt(sc.nextLine());
-            if (indiceARevisar < 0 || indiceARevisar > (listaVehiculos.size() - 1)) {
+            indiceARevisar--; // -1 para que corresponda al índice real
+            if (indiceARevisar < 0 || indiceARevisar >= listaVehiculos.size()) {
                 System.out.println("ERROR: Debe ingresar un índice válido.");
             } else if (listaVehiculos.get(indiceARevisar).getRevisionesPendientes() <= 0) {
                 System.out.println("ERROR: Este vehículo no tiene revisiones pendientes.");
             } else {
-                int revisiones = listaVehiculos.get(indiceARevisar).getRevisionesPendientes();
-                listaVehiculos.get(indiceARevisar).setRevisionesPendientes(revisiones - 1);
+                Vehiculo vehiculoARevisar = listaVehiculos.get(indiceARevisar);
+                int revisiones = vehiculoARevisar.getRevisionesPendientes();
+                vehiculoARevisar.setRevisionesPendientes(revisiones - 1);
 
                 System.out.println("=== REVISIÓN REALIZADA EXITOSAMENTE ===");
-                System.out.println("Patente: " + listaVehiculos.get(indiceARevisar).getPatente());
-                System.out.println("Costo: " + listaVehiculos.get(indiceARevisar).getMarca());
-                System.out.println("Costo de revisión: $" + listaVehiculos.get(indiceARevisar).calcularCostoRevision());
+                System.out.println("Patente: " + vehiculoARevisar.getPatente());
+                System.out.println("Costo: " + vehiculoARevisar.getMarca());
+                System.out.println("Costo de revisión: $" + vehiculoARevisar.calcularCostoRevision());
                 System.out.println("Revisiones pendientes restantes: "
-                        + listaVehiculos.get(indiceARevisar).getRevisionesPendientes());
+                        + vehiculoARevisar.getRevisionesPendientes());
             }
         } catch (NumberFormatException e) {
             System.out.println("ERROR: Debe ingresar un número.");
@@ -277,10 +300,14 @@ public class Main {
     }
 
     static void cargarDatosDePrueba() {
-        VehiculoParticular vehiculo1 = new VehiculoParticular("XS-YY-94", "Toyota", 2, 5);
-        VehiculoCarga vehiculo2 = new VehiculoCarga("MS-OO-54", "Chevrolet", 2, 200);
+        VehiculoParticular vehiculo1 = new VehiculoParticular("XSYY94", "Toyota", 0, 5);
+        VehiculoParticular vehiculo2 = new VehiculoParticular("AWAW24", "Subaru", 1, 4);
+        VehiculoCarga vehiculo3 = new VehiculoCarga("MSOO54", "Chevrolet", 2, 200);
+        VehiculoCarga vehiculo4 = new VehiculoCarga("UKMS28", "Hyundai", 0, 300);
 
         listaVehiculos.add(vehiculo1);
         listaVehiculos.add(vehiculo2);
+        listaVehiculos.add(vehiculo3);
+        listaVehiculos.add(vehiculo4);
     }
 }
