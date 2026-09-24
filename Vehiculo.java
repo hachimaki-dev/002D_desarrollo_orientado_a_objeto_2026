@@ -40,6 +40,6 @@ public abstract class Vehiculo {
     public abstract int calcularCostoRevision();
 
     public String mostrarInfo(){
-        return "El vehiculo de patente " + this.getPatente() + " y de marca " + this.getMarca() + " actualmente tiene: " + this.getRevisionesPendientes() + " revisiones pendientes" ;
+        return "El vehiculo de patente " + this.getPatente() + ", marca " + this.getMarca() + " actualmente tiene: " + this.getRevisionesPendientes() + " revisiones pendientes" ;
     }
 }   

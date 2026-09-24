@@ -22,6 +22,6 @@ public class VehiculoParticular extends Vehiculo {
     @Override
     public String mostrarInfo() {
         // TODO Auto-generated method stub
-        return super.mostrarInfo() + " de tipo particular y contiene " + this.getPasajeros() + " pasajeros";
+        return "PARTICULAR | " + super.mostrarInfo() + " y contiene " + this.getPasajeros() + " pasajeros";
     }
 }

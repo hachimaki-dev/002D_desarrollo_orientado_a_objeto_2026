@@ -20,6 +20,6 @@ public class VehiculoCarga extends Vehiculo{
     @Override
     public String mostrarInfo() {
         // TODO Auto-generated method stub
-        return super.mostrarInfo() + "tipo: Carga" + "y su peso maximo de carga es de: " + this.getPesoMaxCarga() ;
+        return "CARGA | " + super.mostrarInfo() + " y su peso maximo de carga es de: " + this.getPesoMaxCarga() ;
     }
 }
