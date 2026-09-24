@@ -33,21 +33,12 @@ public class Main {
                 break;
             case "4":
                 realizarRevision();
-                break;
-            case "5":
-                resumenVehiculos();
-                break;
-            case "6":
-                salir();
-                break;
-            case "7":
-                precargarDatos();
-                break;
-        
+                break;     
             default:
                 break;
         }
-
+    }
+     //OPCION 1 MENU
         static void registrarVehiculo(){
             boolean mostrarMenu=true;
 
@@ -66,13 +57,100 @@ public class Main {
                         break;
                     case "2":
                         registrarCarga();
+                        mostrarMenu=false;
                         break;
-                
                     default:
                         break;
                 }
             }
         }
-        }
-    }
 
+        static void registrarParticular(){
+            try{
+                System.out.println("Patente: ");
+                String patente = sc.nextLine();
+                System.out.println("Marca: ");
+                String marca = sc.nextLine();
+                System.out.println("Revisiones pendientes: ");
+                int revisionesPendientes = Integer.parseInt(sc.nextLine());
+                System.out.println("Numero de pasajeros: ");
+                int numPasajeros = Integer.parseInt(sc.nextLine());
+
+                if (revisionesPendientes < 0){
+                    System.out.println("El número de revisiones no puede ser negativo.");
+                    return;
+                }
+                if (numPasajeros <= 0){
+                    System.out.println("El numero de pasajeros debe ser positivo.");
+                    return;
+                }
+                vehiculos_particulares.add(new VehiculoParticular(patente, marca, revisionesPendientes, numPasajeros));
+                System.out.println("[OK] Vehiculo particular registrado.");                
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un numero válido.");
+            }
+        }
+
+        static void registrarCarga(){
+            try {
+                System.out.println("Patente: ");
+                String patente = sc.nextLine();
+                System.out.println("Marca: ");
+                String marxca = sc.nextLine();
+                System.out.println("Revisiones pendientes: ");
+                int revisionesPendientes = Integer.parseInt(sc.nextLine());
+                System.out.println("Peso maximo de carga (kg): ");
+                int pesoMaxCarga = Integer.parseInt(sc.nextLine());
+            } catch (NumberFormatException e) {
+                System.out.println("Error: Debe ingresar un numero válido.");
+            }
+        }
+
+        //LISTAR VEHICULO MENU
+        static void listarVehiculos(){
+            if(vehiculos_particulares.isEmpty()& vehiculos_cargas.isEmpty());
+            System.out.println("Vehiculo particular no registrado.");
+            return;
+            System.out.println("Vehiculo Registrado");
+            int i = 1;
+            for(VehiculoParticular v: vehiculos_particulares){
+                System.out.println(("["+ i + "]" + mostrarInfo));
+                i++;
+            }
+            for(VehiculosCargas v: vehiculos_cargas){
+                System.out.println(("["+ i + "]" + mostrarInfo)); 
+                i++;
+            }
+            
+        }
+
+        //BUSCAR MENU
+        static void buscarVehiculo(){
+            System.out.println("Ingrese texto a buscar: ");
+            String busqueda = sc.nextLine().toLowerCase();
+            boolean encontrado = false;
+            System.out.println("Resultados: ");
+            for (VehiculoParticular v: vehiculos_particulares){
+                if (v.getpatente().contains(busqueda)){
+                    System.out.println(v.mostrarInfo());
+                    encontrado=true;
+                }
+            }
+        }
+
+        //REVISION MENU
+        static void revision(){
+            if(vehiculos_particulares.isEmpty()&vehiculos_cargas.isEmpty()){
+                System.out.println("No se encontró ninguna revisión.")
+                return;
+            }
+            System.out.println("Realizar Revision");
+            int i = 1;
+            for(vehiculos_particulares v: vehiculos_particulares){
+                System.out.println("["+ i +"]"+ v.getpatente()+ "-"+v.getmarca);
+            }
+        }
+        
+        }
+
+//se intento hehe
