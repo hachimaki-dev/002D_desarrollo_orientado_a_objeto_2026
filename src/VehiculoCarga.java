@@ -1,6 +1,6 @@
 public class VehiculoCarga extends Vehiculo{
  private int pesoMaxCarga;
- Vehiculo(String patente, String marca, int revisionesPendientes, int pesoMaxCarga){
+ VehiculoCarga(String patente, String marca, int revisionesPendientes, int pesoMaxCarga){
     super(patente, marca, revisionesPendientes);
     this.pesoMaxCarga=pesoMaxCarga;
  }
@@ -9,7 +9,7 @@ public class VehiculoCarga extends Vehiculo{
  }
   @Override
  public int calcularCostoRevision(){
-    return getRevisionesPendientes()-getPesoMaxCarga();
+    return 30000+(pesoMaxCarga*5);
  }
  @Override 
  public String mostrarInfo(){

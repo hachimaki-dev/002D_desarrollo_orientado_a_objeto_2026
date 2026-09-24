@@ -1,8 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 public class Main {
-    static ArrayList<VehiculoParticular> coleccionParticulares= new ArrayList<>();
-    static ArrayList<VehiculoCarga> coleccionCarga= new ArrayList<>();
+    static ArrayList<Vehiculo> coleccion= new ArrayList<>();
     static Scanner sc = new Scanner(System.in);
     public static void main(String[] args) {mostrarMenu();}
      static void mostrarMenu(){
@@ -22,13 +21,17 @@ public class Main {
                     registroVehiculo();
                     break;
                 case "2":
+                    listarVehiculo();
                     break;
                 case "3":
+                     buscarVehiculo();
                     break;
                 case "4":
+                    realizarRevision();
                     break;
                 case "5":
-                    break;
+                    resumenVehiculo();
+                    break;                 
                 case "6":
                     mostrar_menu=false;
                     break;
@@ -36,60 +39,63 @@ public class Main {
                     System.out.println("Error, opción no disponible");
                     System.out.println("Vuelva a intentar");
                     break;
-            }
+            }}
         }
         static public void registroVehiculo(){
             System.out.println("---- VEHICULO ----");
             System.out.println("1. PARTICULAR");
             System.out.println("2. CARGA");
             System.out.println("Elija una opción: ");
-            String optVe =sc.next();
-            switch (optVe) {
-                case "1":  
-                 registroVehiculoParticular();
-                    break;
-                case "2":
-                 registroVehiculoCarga();
-                    break;   
-                default:
-                    System.out.println("Error, opción no disponible");
-                    System.out.println("Vuelva a intentar");
-                    break;
-            }
+            String optVe =sc.next();{
+                if(optVe.equals("1")){
+                    System.out.println("Patente: ");
+                    String patente = sc.nextLine();
+                    System.out.println("Marca: ");
+                    String marca = sc.nextLine();
+                    System.out.println("Revisiones Pendientes: ");
+                    int revisionesPendientes=Integer.parseInt(sc.nextLine());
+                    System.out.println("numero Pasajeros");
+                    int numPasajeros = Integer.parseInt(sc.nextLine());
+                    coleccion.add(new VehiculoParticular(patente, marca, revisionesPendientes, numPasajeros));
+                }else if(optVe.equals("2")){
+                    System.out.println("Patente: ");
+                    String patente = sc.nextLine();
+                    System.out.println("Marca: ");
+                    String marca = sc.nextLine();
+                    System.out.println("Revisiones Pendientes: ");
+                    int revisionesPendientes=Integer.parseInt(sc.nextLine());
+                    System.out.println("peso Maximo Carga:");
+                    int pesoMaxCarga = Integer.parseInt(sc.nextLine());
+                    coleccion.add(new VehiculoCarga(patente, marca, revisionesPendientes, pesoMaxCarga));
+
+                }else{
+                    System.out.println("Opción invalida");
+                }
         }
         
      }
-     static public void registroVehiculoParticular(){
-            System.out.println("Registrar Patente: ");
-            String patente =sc.next();
-            System.out.println("Registrar Marca: ");
-            String marca =sc.next();
-            System.out.println("Revisiones pendientes: ");
-            int revisionesPendientes = Integer.parseInt(sc.nextLine());
-            System.out.println("Numero de pasajeros: ");
-            int numPasajeros = Integer.parseInt(sc.nextLine());
-            VehiculoParticular vehPar = new VehiculoParticular(patente,marca,revisionesPendientes,numPasajeros);
-            if (coleccionParticulares.add(vehPar)) {
-                System.out.println("Agregado Exitosamente");         
-            }else{
-                System.err.println("Error, no se agrego nada");
+     static void listarVehiculo(){
+        if(coleccion.isEmpty()){
+            System.out.println("Resultados: "+coleccion.isEmpty()); 
+     }else{
+        System.out.println("Sin Resultados: ");
+     }}
+     static void buscarVehiculo(){
+        System.out.println("Ingresar patente: ");
+        String buscar = sc.nextLine().toLowerCase();
+        for(Vehiculo v : coleccion){
+            if(v.getPatente().toLowerCase().contains(buscar)){
+                System.out.println("Vehiculo encontrado: "+v.mostrarInfo());
             }
+        }
+     }
+     static void realizarRevision(){
+        
+
+     }
+     static void resumenVehiculo(){
+
+     }
     }
-    static public void registroVehiculoCarga(){
-            System.out.println("Registrar Patente: ");
-            String patente =sc.next();
-            System.out.println("Registrar Marca: ");
-            String marca =sc.next();
-            System.out.println("Revisiones pendientes: ");
-            int revisionesPendientes = Integer.parseInt(sc.nextLine());
-            System.out.println("Peso maximo de carga: ");
-            int pesoMaxCarga = Integer.parseInt(sc.nextLine());
-            VehiculoCarga vehCar = new VehiculoCarga(patente,marca,revisionesPendientes,pesoMaxCarga);
-            if (coleccionCarga.add(vehCar)) {
-                System.out.println("Agregado Exitosamente");         
-            }else{
-                System.err.println("Error, no se agrego nada");
-            }
-    }
-}
+
 

@@ -1,6 +1,6 @@
 public class VehiculoParticular extends Vehiculo{
  private int numPasajeros;
- Vehiculo(String patente, String marca, int revisionesPendientes, int numPasajeros){
+ VehiculoParticular(String patente, String marca, int revisionesPendientes, int numPasajeros){
     super(patente, marca, revisionesPendientes);
     this.numPasajeros=numPasajeros;
  }
@@ -10,7 +10,7 @@ public class VehiculoParticular extends Vehiculo{
 
  @Override
  public int calcularCostoRevision(){
-    return getRevisionesPendientes()-getNumPasajeros();
+    return 30000+(getNumPasajeros()+2000);
  }
  @Override 
  public String mostrarInfo(){
