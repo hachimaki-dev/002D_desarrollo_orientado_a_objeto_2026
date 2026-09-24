@@ -3,7 +3,7 @@ public class VehiculoParticular extends Vehiculo {
     
     public VehiculoParticular(String patente , String marca , int revisionesPendientes , int numPasajeros){
         super(patente, marca, revisionesPendientes);
-        setnumPasajeros(numPasajeros);
+        this.numPasajeros = numPasajeros;
     }
     public void setnumPasajeros(int numPasajeros){
         this.numPasajeros = numPasajeros;
@@ -15,9 +15,9 @@ public class VehiculoParticular extends Vehiculo {
     public int calcularCostoRevision(){
         return 30000 + (numPasajeros * 2000);
     }
-    @Override 
+    @Override
     public String toString(){
-        return "| Particular" + "| Patente : " + getPatente() + "| Marca : " + getMarca() + "| Costo de revision : " + calcularCostoRevision() + "Numero de pasajeros" + getnumPasajeros();
-    }
+        return "Particular" + getPatente() + "| Marca " + getMarca() + "| Pasajeros " + getnumPasajeros() + "Revisiones" + getRevisionesPendientes() + "Costo revision : $ " + calcularCostoRevision();
+    } 
     }
 

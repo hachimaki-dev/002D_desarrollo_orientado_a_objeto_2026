@@ -1,22 +1,25 @@
 public class VehiculoCarga extends Vehiculo {
     private int pesoMaxCarga;
 
-    public VehiculoCarga(String patente , String marca , int revisionesPendientes , int pesoMaxCarga){
+    public VehiculoCarga(String patente, String marca, int revisionesPendientes, int pesoMaxCarga) {
         super(patente, marca, revisionesPendientes);
-        setpesoMaxCarga(pesoMaxCarga);
-    }
-    public void setpesoMaxCarga(int pesoMaxCarga){
         this.pesoMaxCarga = pesoMaxCarga;
     }
-    public int getpesoMaxCarga(){
+    public int getPesoMaxCarga() {
         return pesoMaxCarga;
     }
-    public int calcularCostoRevision(){
+    public void setPesoMaxCarga(int pesoMaxCarga) {
+        this.pesoMaxCarga = pesoMaxCarga;
+    }
+    @Override
+    public int calcularCostoRevision() {
         return 30000 + (pesoMaxCarga * 5);
     }
     @Override 
-    public String toString(){
-        return  "| Vehiculo Carga" + "| Patente :" + getPatente() + "| Marca :" + getPatente() + "| Costo revision :" + calcularCostoRevision() + "Peso maximo de carga" + getpesoMaxCarga(); 
-    
-}
+    public String toString() {
+        return "Carga | " + getPatente() + " | Marca: " + getMarca() + 
+            " | Carga max: " + pesoMaxCarga + " kg" + 
+            " | Costo revision: $" + calcularCostoRevision() + 
+            " | Revisiones pendientes: " + getRevisionesPendientes();
+    }
 }

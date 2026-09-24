@@ -4,25 +4,17 @@ public abstract class Vehiculo {
     private int revisionesPendientes;
 
     public Vehiculo(String patente , String marca , int revisionesPendientes){
-        setPatente(patente);
-        setMarca(marca);
-        setRevisionesPendientes(revisionesPendientes);
+        this.patente = patente;
+        this.marca = marca;
+        this.revisionesPendientes = revisionesPendientes;
     }
 
     public String getPatente() {
         return patente;
     }
 
-    public void setPatente(String patente) {
-        this.patente = patente;
-    }
-
     public String getMarca() {
         return marca;
-    }
-
-    public void setMarca(String marca) {
-        this.marca = marca;
     }
 
     public int getRevisionesPendientes() {
@@ -36,7 +28,7 @@ public abstract class Vehiculo {
     public abstract int calcularCostoRevision();
     @Override 
     public String toString(){
-        return "| Patente : " + getPatente() + "| Marca : " + getMarca() + "| Costo de revision : " + calcularCostoRevision();
+        return "| Patente : " + getPatente() + "| Marca : " + getMarca() + "| Costo de revision : " + calcularCostoRevision() + "| Revisiones pendientes :" + revisionesPendientes;
     }
     
 }
