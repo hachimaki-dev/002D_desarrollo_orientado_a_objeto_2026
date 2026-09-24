@@ -2,7 +2,6 @@ public abstract class Vehiculo {
     private String patente;
     private String marca;
     private int revisionesPendientes;
-    public int tipoVehiculo;
 
 
 
@@ -10,7 +9,7 @@ public abstract class Vehiculo {
         this.marca = marca;
         this.patente = patente;
         this.revisionesPendientes = revisionesPendientes;
-        this.tipoVehiculo = tipoVehiculo;
+    
         
 
     }
@@ -28,20 +27,14 @@ public abstract class Vehiculo {
 
     }
 
-    public void setRevisionesPendientes(int revisionesPendientes){
-        if (revisionesPendientes < 0){
-            System.out.println("");    
-        } else {
-            this.revisionesPendientes = revisionesPendientes;
+    public abstract int calcularCostoRevision();
 
-        }
-        
-    }
+    
 
 
     
     public String motrarInfo(){
-        return "El vehiculo es";
+        return "MARCA: " + marca + "PATENTE: " + patente + "Costo de revision: " + calcularCostoRevision() + "Pendientes: " + revisionesPendientes;
 
 
     }

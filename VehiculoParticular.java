@@ -4,7 +4,8 @@ public abstract  class  VehiculoParticular {
         private int numPasajeros;
         
 
-        public VehiculoParticular(int numPasajeros, String patente, String marca, int revisionesPendientes) {
+        public VehiculoParticular(String patente, String marca, int revisionesPendientes, int numPasajeros) {
+            super (patente, marca, revisionesPendientes);
             this.numPasajeros = numPasajeros;
         }
 
@@ -22,7 +23,7 @@ public abstract  class  VehiculoParticular {
 
         @Override 
         public String mostrarInfo() {
-            return "";
+            return "Particular: " + getPatente() + "marca: " + getMarca() + "Pasajeros: " + numPasajeros + "Costo de revision: " + calcularCostoRevision() + "pendientes: " + getRevisionesPendientes();
             
 
         }
