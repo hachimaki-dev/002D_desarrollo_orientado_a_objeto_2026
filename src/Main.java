@@ -156,13 +156,13 @@ public class Main {
         System.out.println("[" + i + "] " + listaVehiculos.get(i).getPatente() + " " + listaVehiculos.get(i).getMarca() + " (Pendientes: " + listaVehiculos.get(i).getRevisionesPendientes() + ")");
     }
 
-    System.out.print("Ingrese el índice del vehículo a revisar: ");
+    System.out.print("Ingrese el el numero de lista indicado del vehículo a revisar: ");
     try {
         int indice = Integer.parseInt(sc.nextLine());
         if (indice < 0 || indice >= listaVehiculos.size()) {
-            System.out.println("ERROR: Debe ingresar un índice válido.");
+            System.out.println("Debe ingresar un numero de losta valido válido.");
         } else if (listaVehiculos.get(indice).getRevisionesPendientes() <= 0) {
-            System.out.println("ERROR: Este vehículo no tiene revisiones pendientes.");
+            System.out.println("Este vehículo no tiene revisiones pendientes.");
         } else {
             
             
@@ -175,7 +175,7 @@ public class Main {
             System.out.println("Revisiones pendientes: " + listaVehiculos.get(indice).getRevisionesPendientes());
         }
     } catch (NumberFormatException e) {
-        System.out.println("ERROR: Debe ingresar un número válido.");
+        System.out.println("Debe ingresar un número válido.");
     }
 }
 
