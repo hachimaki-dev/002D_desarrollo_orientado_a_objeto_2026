@@ -1,7 +1,7 @@
 //¿Que paradigma de programacion se esta usando y sus caracteristicas principales?
-//R:El paradigma es programacion orientada a objetos y su principal funcion es que puedes ordenar todo en distintos lados y de distintas maneras como con polimorfismo, abstraccion, herencia y encapsulamiento.
+//R: El paradigma es programacion orientada a objetos y su principal funcion es que puedes ordenar todo en distintos lados y de distintas maneras como con polimorfismo, abstraccion, herencia y encapsulamiento.
 //Al menos 2 DIFERENCIAS CONCRETAS entre POO(Java) y paradigma anterior (Python funcional)
-//R:Que java no compila con errores, al contrario de python que compila linea por linea sin importar mucho (algunas veces) si hay un error o no, y la otra diferencia es que en java se debe estipular que tipo de dato es cada uno y a diferencia de python que puedes dejar un dato vacio y asignarle un valor cualquiera en otro momento.
+//R: Que java no compila con errores, al contrario de python que compila linea por linea sin importar mucho (algunas veces) si hay un error o no, y la otra diferencia es que en java se debe estipular que tipo de dato es cada uno y a diferencia de python que puedes dejar un dato vacio y asignarle un valor cualquiera en otro momento.
 
 import java.util.ArrayList;
 import java.util.Scanner;
