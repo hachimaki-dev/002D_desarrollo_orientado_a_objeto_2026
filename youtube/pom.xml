@@ -4,14 +4,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.camilo.spotify</groupId>
-    <artifactId>spotify</artifactId>
+    <groupId>com.camilo_diaz.youtube</groupId>
+    <artifactId>youtube</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.openjfx</groupId>
@@ -20,4 +16,8 @@
         </dependency>
     </dependencies>
 
+    <properties>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+    </properties>
 </project>

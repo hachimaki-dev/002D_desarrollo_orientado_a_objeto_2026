@@ -1,7 +1,7 @@
-package com.camilo.spotify;
+package com.camilo_diaz.youtube;
 
 public class Main {
     public static void main(String[] args) {
-        SpotifyApp.main(args);
+        YoutubeApp.main(args);
     }
 }
