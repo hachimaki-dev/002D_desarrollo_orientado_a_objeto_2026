@@ -1,7 +1,7 @@
-package com.femacias.instagram;
+package com.github;
 
 public class Main {
     public static void main(String[] args) {
-        InstagramApp.main(args);
+        githubApp.main(args);
     }
 }
