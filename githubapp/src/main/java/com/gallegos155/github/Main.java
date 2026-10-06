@@ -1,7 +1,8 @@
-package com.hectorg.youtube;
+package com.gallegos155.github;
 
 public class Main {
+    
     public static void main(String[] args) {
-        YoutubeApp.main(args);
+        GitHubApp.main(args);
     }
 }

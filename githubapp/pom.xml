@@ -4,21 +4,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.hectorg.youtube</groupId>
-    <artifactId>youtube</artifactId>
+    <groupId>com.gallegos155.github</groupId>
+    <artifactId>githubapp</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-controls</artifactId>
-            <version>21.0.1</version>
-        </dependency>
-    </dependencies>
-    
     <properties>
         <maven.compiler.source>26</maven.compiler.source>
         <maven.compiler.target>26</maven.compiler.target>
     </properties>
+
+    <dependencies>
+        <dependency>
+        <groupId>org.openjfx</groupId>
+        <artifactId>javafx-controls</artifactId>
+        <version>26.0.1</version>
+        </dependency>
+    </dependencies>
+
 
 </project>
