@@ -8,33 +8,29 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class InstagramApp extends Application{
+public class InstagramApp extends Application {
+
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage ventanaPrincipal) {
         Label lbltitulo = new Label("Instagram");
-        lbltitulo.setStyle("-fx-background-color:rgb(87, 156, 221);" + "-fx-background-radius: 20px;" + "-fx-padding: 5 20;" + "-fx-text-fill: #ffffff");
 
-        TextField txtnumerotelefono = new TextField();
-        txtnumerotelefono.setPromptText("Ingrese su numero");
+        TextField campoNumeroTelefonico = new TextField();
+        campoNumeroTelefonico.setPromptText("Ingrese su numero de telefono");
 
-        VBox vbox = new VBox(5 , lbltitulo , txtnumerotelefono );
-        vbox.setStyle("-fx-background-color:FFFFF");
-        Button Boton = Boton();
-        Scene escena = new Scene(vbox , 600 , 400);
-        stage.setScene(escena);
-        stage.show();
-        Boton();
+        VBox contendorPrincipal = new VBox(10 , lbltitulo , campoNumeroTelefonico);
+        Button botonPrueba = new Button("Holaa!!");
+        contendorPrincipal.getChildren().add(botonPrueba);
+
+        Scene escenaPrincipal = new Scene(contendorPrincipal , 600 , 400);
+
+        ventanaPrincipal.setTitle("Instagram");
+        ventanaPrincipal.setScene(escenaPrincipal);
+        ventanaPrincipal.show();
+
+
     }
+
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public static Button Boton(){
-        Button btnRegistrarse = new Button("Registarse");
-        btnRegistrarse.setStyle("-fx-background-color:rgb(7, 149, 214);" + "-fx-text-fill:rgb(255, 255, 255);" + "-fx-background-radius: 20px");
-        return btnRegistrarse;
-    }
-    public static void registrarseInstagram(){
-     
     }
 }
