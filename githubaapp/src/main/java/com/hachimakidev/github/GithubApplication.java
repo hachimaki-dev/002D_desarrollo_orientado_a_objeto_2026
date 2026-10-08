@@ -9,6 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -45,7 +46,8 @@ public class GithubApplication extends  Application{
         btn_sign_in.setStyle("-fx-background-color:#0a8940;" + "-fx-text-fill: #fff;" + "-fx-font-weight: bold;");
 
         btn_sign_in.setOnAction( e -> {
-            System.out.println("Wena wena");
+           
+           stage.setScene (showHomeScreen()) ;
         } );
 
         VBox formulario_login = new VBox(10,lbl_user_name, txf_user_name, lbl_password, txf_password, btn_sign_in);
@@ -62,6 +64,40 @@ public class GithubApplication extends  Application{
 
         stage.show();
     }
+
+    public static Scene showHomeScreen(){
+
+        Button btn__burger_menu = new Button("|||");
+        btn__burger_menu.setStyle("-fx-background-color : #f6f8fa;" + "-fx-border-color: #e2e6eb; " + "-fx-background-radius : 3px ");
+
+
+        Image img_logo_gh = new Image("https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png");
+        ImageView imgView_logo_gh = new ImageView(img_logo_gh);
+        imgView_logo_gh.setFitWidth(32);
+        imgView_logo_gh.setFitHeight(32);
+        Label lbl_dashboard = new Label("Dashboard");
+        lbl_dashboard.setStyle("-fx-font-weight:bold;");
+
+
+
+
+        HBox home_box_navbar = new HBox(10, btn__burger_menu, imgView_logo_gh, lbl_dashboard);
+        home_box_navbar.setAlignment(Pos.CENTER_LEFT);
+        home_box_navbar.setStyle("-fx-background-color : #f6f8fa");
+        home_box_navbar.setPadding(new Insets(15));
+
+        VBox home_box = new VBox(home_box_navbar);
+        home_box.setStyle("-fx-background-color : #ffffff");
+
+        Scene home_scene = new Scene(home_box, 375, 667);
+
+
+
+        return home_scene;
+
+    }
+
+
 
 
     public static void main(String[] args) {
