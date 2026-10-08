@@ -1,72 +1,89 @@
 package com.hachimakidev.github;
 
 import javafx.application.Application;
+
 import javafx.geometry.Insets;
+
 import javafx.geometry.Pos;
+
 import javafx.scene.Scene;
+
 import javafx.scene.control.Button;
+
 import javafx.scene.control.Label;
+
 import javafx.scene.control.TextField;
+
 import javafx.scene.image.Image;
+
 import javafx.scene.image.ImageView;
+
 import javafx.scene.layout.VBox;
+
 import javafx.stage.Stage;
 
-public class GithubApplication extends  Application{
-    
-    @Override
-    public void start(Stage stage) throws Exception {
-        
-        Image logo_gh = new Image("https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png");
+public class GithubApplication extends Application {
 
-        ImageView imgView_logo_gh = new ImageView(logo_gh);
-        imgView_logo_gh.setFitWidth(60);
-        imgView_logo_gh.setFitHeight(60);
+  @Override
 
-        Label lblInicioSesion = new Label("Sign in to GitHub");
+  public void start(Stage stage) throws Exception {
 
-        lblInicioSesion.setStyle("-fx-font-size: 20px;" + "-fx-font-weight: bold;");
+    Image logo_gh = new Image("https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png");
 
-        VBox banner = new VBox(imgView_logo_gh, lblInicioSesion);
+    ImageView imgView_logo_gh = new ImageView(logo_gh);
 
-        banner.setAlignment(Pos.TOP_CENTER);
+    imgView_logo_gh.setFitWidth(60);
 
+    imgView_logo_gh.setFitHeight(60);
 
-        Label lbl_user_name = new Label("Username or email addres");
-        
-        TextField txf_user_name = new TextField();
+    Label lblInicioSesion = new Label("Sign in to GitHub");
 
-        Label lbl_password = new Label("Password");
+    lblInicioSesion.setStyle("-fx-font-size: 20px;" + "-fx-font-weight: bold;");
 
-        TextField txf_password = new TextField();
+    VBox banner = new VBox(imgView_logo_gh, lblInicioSesion);
 
-        Button btn_sign_in = new Button("Sign in");
-        btn_sign_in.setMaxWidth(Double.MAX_VALUE);
-        btn_sign_in.setStyle("-fx-background-color:#0a8940;" + "-fx-text-fill: #fff;" + "-fx-font-weight: bold;");
+    banner.setAlignment(Pos.TOP_CENTER);
 
-        btn_sign_in.setOnAction( e -> {
-            System.out.println("Wena wena");
-        } );
+    Label lbl_user_name = new Label("Username or email addres");
 
-        VBox formulario_login = new VBox(10,lbl_user_name, txf_user_name, lbl_password, txf_password, btn_sign_in);
+    TextField txf_user_name = new TextField();
 
-        VBox interfaz = new VBox(5, banner, formulario_login);
+    Label lbl_password = new Label("Password");
 
-        interfaz.setPadding(new Insets(20));
+    TextField txf_password = new TextField();
 
-        interfaz.setStyle("-fx-background-color: #fff;");
+    Button btn_sign_in = new Button("Sign in");
 
-        Scene login_scene = new Scene(interfaz, 375, 667);
-        
-        stage.setScene(login_scene);
+    btn_sign_in.setMaxWidth(Double.MAX_VALUE);
 
-        stage.show();
-    }
+    btn_sign_in.setStyle("-fx-background-color:#0a8940;" + "-fx-text-fill: #fff;" + "-fx-font-weight: bold;");
 
+    btn_sign_in.setOnAction(e -> {
 
-    public static void main(String[] args) {
-        launch(args);
-    }
+      System.out.println("Wena wena");
 
+    });
+
+    VBox formulario_login = new VBox(10, lbl_user_name, txf_user_name, lbl_password, txf_password, btn_sign_in);
+
+    VBox interfaz = new VBox(5, banner, formulario_login);
+
+    interfaz.setPadding(new Insets(20));
+
+    interfaz.setStyle("-fx-background-color: #fff;");
+
+    Scene login_scene = new Scene(interfaz, 375, 667);
+
+    stage.setScene(login_scene);
+
+    stage.show();
+
+  }
+
+  public static void main(String[] args) {
+
+    launch(args);
+
+  }
 
 }
