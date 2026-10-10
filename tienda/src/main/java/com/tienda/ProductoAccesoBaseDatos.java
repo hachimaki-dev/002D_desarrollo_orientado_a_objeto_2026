@@ -9,6 +9,7 @@ import java.util.List;
 
 public class ProductoAccesoBaseDatos {
 
+
     public List<Producto> listar() throws SQLException {
         String sql = "SELECT id, nombre, precio, stock FROM producto ORDER BY id";
         List<Producto> lista = new ArrayList<>();
@@ -28,4 +29,17 @@ public class ProductoAccesoBaseDatos {
         }
         return lista;
     }
+    public void insertar(Producto p) throws SQLException{
+        String sql = "INSERT INTO producto (nombre, precio, stock) VALUES (?, ?, ?)";
+         try (Connection con = Conexion.obtener();
+         PreparedStatement ps = con.prepareStatement(sql)) {
+
+        ps.setString(1, p.getNombre());
+        ps.setDouble(2, p.getPrecio());
+        ps.setInt(3, p.getStock());
+
+        ps.executeUpdate();
+    }
+    }
+
 }
