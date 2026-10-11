@@ -51,10 +51,30 @@ public class App extends Application {
     }
     private HBox crearFormulario(){
         TextField txtNombre = new TextField();
+        txtNombre.setPromptText("Nombre");
+
         TextField txtPrecio = new TextField();
+        txtPrecio.setPromptText("Precio");
+
         TextField txtStock = new TextField();
-        Button btn_Guardar = new Button();
-        btn_Guardar.setOnAction(null);
+        txtStock.setPromptText("Stock");
+
+        Button btn_Guardar = new Button("Guardar");
+        btn_Guardar.setOnAction(e -> {
+            try {
+                String nombre = txtNombre.getText();
+                double precio = Double.parseDouble(txtPrecio.getText());
+                int stock = Integer.parseInt(txtStock.getText());
+                
+                Producto p = new Producto(0, nombre, precio, stock);
+                new ProductoAccesoBaseDatos().insertar(p);
+            } catch (NumberFormatException error) {
+                System.err.println("ERROR NO COINCIDE CON LOS DATOS INGRESADOS O HUBO UN ERROR EN LA BASE DE DATOS");
+                new Alert(Alert.AlertType.ERROR,"NO COINCIDE CON LOS DATOS INGRESADOS").show();
+            } catch (SQLException erException){
+                System.err.println("ERROR EN LA BASE DE DATOS");
+            }
+        });
         return new HBox(10 , txtNombre , txtPrecio , txtStock , btn_Guardar);
 
     }
