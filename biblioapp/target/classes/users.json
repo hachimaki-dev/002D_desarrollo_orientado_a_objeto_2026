@@ -1,0 +1,17 @@
+[
+  {
+    "rut": "12345678-9",
+    "nombre": "Juan Pérez",
+    "correo": "juan.perez@example.com"
+  },
+  {
+    "rut": "98765432-1",
+    "nombre": "María López",
+    "correo": "maria.lopez@example.com"
+  },
+  {
+    "rut": "32.123.213-8",
+    "nombre":"nombre apellido",
+    "correo": "correorandom@gmail.com"
+  }
+]
