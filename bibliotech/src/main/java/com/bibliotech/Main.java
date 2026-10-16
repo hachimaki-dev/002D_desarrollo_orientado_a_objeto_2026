@@ -1,7 +1,7 @@
-package com.femacias.instagram;
+package com.bibliotech;
 
 public class Main {
     public static void main(String[] args) {
-        InstagramApp.main(args);
+        BiblioTechApp.main(args);
     }
 }
