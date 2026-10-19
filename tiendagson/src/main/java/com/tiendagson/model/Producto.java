@@ -1,6 +1,6 @@
 package com.tiendagson;
 
-public class Producto {
+public abstract class  Producto {
     private String id;
     private String nombre;
     private int stock;
@@ -31,5 +31,6 @@ public class Producto {
     public void setStock(int stock){
         this.stock = stock;
     }
+    public abstract String descripcion();
     
 }
