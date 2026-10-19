@@ -1,4 +1,4 @@
-package com.tiendagson;
+package com.tiendagson.model;
 
 public abstract class  Producto {
     private String id;

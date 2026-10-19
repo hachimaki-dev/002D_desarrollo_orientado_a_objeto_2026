@@ -1,4 +1,4 @@
-package com.tiendagson;
+package com.tiendagson.model;
 
 public class Celular extends Producto {
     private String gama;

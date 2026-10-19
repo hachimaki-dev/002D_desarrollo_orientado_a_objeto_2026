@@ -12,6 +12,7 @@ import javafx.stage.Stage;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import com.google.gson.Gson;
+import com.tiendagson.model.Producto;
 
 public class PruebaTienda extends Application {
     @Override

@@ -1,4 +1,4 @@
-package com.tiendagson;
+package com.tiendagson.model;
 
 public class Camiseta extends Producto {
     private String talla;
