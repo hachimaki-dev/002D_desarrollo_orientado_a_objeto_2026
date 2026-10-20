@@ -1,0 +1,30 @@
+[
+    {
+        "rut": "11.111.111-1",
+        "nombre": "Pepita",
+        "email": "pepita@gmail.com",
+        "edad": 67,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "22.222.222-2",
+        "nombre": "Alexander",
+        "email": "alexander@gmail.com",
+        "edad": 18,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "33.333.333-3",
+        "nombre": "Martin",
+        "email": "martin@gmail.com",
+        "edad": 20,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "44.444.444-4",
+        "nombre": "Selena",
+        "email": "Selena@gmail.com",
+        "edad": 20,
+        "puede_solicitar_prestamos": false
+    }
+]
