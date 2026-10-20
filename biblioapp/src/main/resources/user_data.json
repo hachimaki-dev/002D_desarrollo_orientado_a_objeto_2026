@@ -1,0 +1,26 @@
+[
+    {
+        "Rut" : "67.676.767.6",
+        "nombre" : "Gallegos",
+        "email" : "rocketleague67@gmail.com",
+        "edad" : 67,
+        "puede_solicitar_prestamos" : true
+    },
+
+    {
+        "Rut" : "33.333.333.3",
+        "nombre" : "Martin cavero",
+        "email" : "Valorantgames67@gmail.com",
+        "edad" : 69,
+        "puede_solicitar_prestamos" : true
+    },
+
+    {
+        "Rut" : "44.444.444.4",
+        "nombre" : "Alexander",
+        "email" : "BaneoValorant67@gmail.com",
+        "edad" : 70,
+        "puede_solicitar_prestamos" : true
+    }
+
+]

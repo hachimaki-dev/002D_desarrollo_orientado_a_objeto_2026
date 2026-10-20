@@ -1,7 +1,7 @@
-package com.gallegos115.biblioapp;
+package com.gallegos155.biblioapp;
 
 public class Main {
     public static void main(String[] args) {
-        Bibliotech.main(args);
+        App.main(args);
     }
 }
