@@ -1,0 +1,16 @@
+[
+    {
+        "rut": "11.111.111-1",
+        "nombre" : "Pepita",
+        "email" : "ppita@gmail.com",
+        "edad" : 65,
+        "puede_solicitar" : true
+    },
+    {
+        "rut": "22.222.222-2",
+        "nombre" : "pepe",
+        "email" : "ppe@gmail.com",
+        "edad" : 10,
+        "puede_solicitar" : false
+    }
+]
