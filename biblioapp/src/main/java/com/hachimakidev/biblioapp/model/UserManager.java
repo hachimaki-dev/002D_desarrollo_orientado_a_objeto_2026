@@ -33,6 +33,19 @@ public class UserManager {
     }
 
 
+    public User buscar_usuario_por_rut(String rut){
+
+        for (User usuario : user_ArrayList) {
+            if (usuario.getRut().equals(rut)) {
+                return usuario;
+            }
+        }
+        System.err.println("Usuario no encotrado");
+        return null;
+
+    }
+
+
     public void seraVerdad(){
         for(User user : user_ArrayList){
             System.out.println("--------");
