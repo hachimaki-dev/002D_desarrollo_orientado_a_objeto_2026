@@ -1,0 +1,352 @@
+[
+    {
+        "rut": "10.333-333-9",
+        "nombre": "Elba Surero",
+        "email": "elba.surero@gmail.com",
+        "edad": 66,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "10.666-666-8",
+        "nombre": "Armando Bronca Segura",
+        "email": "armando.bronca@gmail.com",
+        "edad": 45,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "10.999-999-7",
+        "nombre": "Elba Lazo",
+        "email": "elba.lazo@gmail.com",
+        "edad": 88,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "11.333-332-6",
+        "nombre": "Aquiles Baila",
+        "email": "aquiles.baila@gmail.com",
+        "edad": 33,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "11.666-665-5",
+        "nombre": "Elmo Sapiens",
+        "email": "elmo.sapiens@gmail.com",
+        "edad": 50,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "11.999-998-4",
+        "nombre": "Esteban Dido",
+        "email": "esteban.dido@gmail.com",
+        "edad": 72,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "12.333-331-3",
+        "nombre": "Alan Brito Delgado",
+        "email": "alan.brito@gmail.com",
+        "edad": 40,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "12.666-664-2",
+        "nombre": "Zacarias Flores del Campo",
+        "email": "zacarias.flores@gmail.com",
+        "edad": 99,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "12.999-997-1",
+        "nombre": "Elsa Pito",
+        "email": "elsa.pito@gmail.com",
+        "edad": 29,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "13.333-330-0",
+        "nombre": "Debora Melano",
+        "email": "debora.melano@gmail.com",
+        "edad": 25,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "13.666-663-9",
+        "nombre": "Susana Oria",
+        "email": "susana.oria@gmail.com",
+        "edad": 31,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "13.999-996-8",
+        "nombre": "Rosa Melano",
+        "email": "rosa.melano@gmail.com",
+        "edad": 55,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "14.333-329-7",
+        "nombre": "Paco Mer",
+        "email": "paco.mer@gmail.com",
+        "edad": 60,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "14.666-662-6",
+        "nombre": "Mila Grosa",
+        "email": "mila.grosa@gmail.com",
+        "edad": 21,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "14.999-995-5",
+        "nombre": "Benito Camela",
+        "email": "benito.camela@gmail.com",
+        "edad": 38,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "15.333-328-4",
+        "nombre": "Elva Ginon",
+        "email": "elva.ginon@gmail.com",
+        "edad": 85,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "15.666-661-3",
+        "nombre": "Aquiles Brinco",
+        "email": "aquiles.brinco@gmail.com",
+        "edad": 27,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "15.999-994-2",
+        "nombre": "Patricio Culo",
+        "email": "patricio.culo@gmail.com",
+        "edad": 44,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "16.333-327-1",
+        "nombre": "Jorge Nitales",
+        "email": "jorge.nitales@gmail.com",
+        "edad": 36,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "16.666-660-0",
+        "nombre": "Elver Galarga",
+        "email": "elver.galarga@gmail.com",
+        "edad": 22,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "16.999-993-9",
+        "nombre": "Elvis Tek",
+        "email": "elvis.tek@gmail.com",
+        "edad": 48,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "17.333-326-8",
+        "nombre": "Alma Mía",
+        "email": "alma.mia@gmail.com",
+        "edad": 102,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "17.666-659-7",
+        "nombre": "Dolores Del Orto",
+        "email": "dolores.delorto@gmail.com",
+        "edad": 75,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "17.999-992-6",
+        "nombre": "Teo Reto",
+        "email": "teo.reto@gmail.com",
+        "edad": 19,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "18.333-325-5",
+        "nombre": "Aquiles Venganza",
+        "email": "aquiles.venganza@gmail.com",
+        "edad": 50,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "18.666-658-4",
+        "nombre": "Lola Mento",
+        "email": "lola.mento@gmail.com",
+        "edad": 63,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "18.999-991-3",
+        "nombre": "Elsa Capunta",
+        "email": "elsa.capunta@gmail.com",
+        "edad": 91,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "19.333-324-2",
+        "nombre": "Brian Toso",
+        "email": "brian.toso@gmail.com",
+        "edad": 28,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "19.666-657-1",
+        "nombre": "Borja Muertero",
+        "email": "borja.muertero@gmail.com",
+        "edad": 66,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "19.999-990-0",
+        "nombre": "Canserbero Perez",
+        "email": "canserbero@gmail.com",
+        "edad": 32,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "20.333-323-9",
+        "nombre": "Cenicienta Cenizas",
+        "email": "cenicienta@gmail.com",
+        "edad": 80,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "20.666-656-8",
+        "nombre": "Morgue Gámez",
+        "email": "morgue.gamez@gmail.com",
+        "edad": 54,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "20.999-989-7",
+        "nombre": "Tumba Limpia",
+        "email": "tumba.limpia@gmail.com",
+        "edad": 77,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "21.333-322-6",
+        "nombre": "Donatto R.I.P.",
+        "email": "donatto.rip@gmail.com",
+        "edad": 90,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "21.666-655-5",
+        "nombre": "Hugo Funes",
+        "email": "hugo.funes@gmail.com",
+        "edad": 41,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "21.999-988-4",
+        "nombre": "Necio Cadáver",
+        "email": "necio.cadaver@gmail.com",
+        "edad": 52,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "22.333-321-3",
+        "nombre": "Sepulcro V.",
+        "email": "sepulcro.v@gmail.com",
+        "edad": 68,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "22.666-654-2",
+        "nombre": "Nicho Letal",
+        "email": "nicho.letal@gmail.com",
+        "edad": 39,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "22.999-987-1",
+        "nombre": "Olvido Eterno",
+        "email": "olvido.eterno@gmail.com",
+        "edad": 95,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "23.333-320-0",
+        "nombre": "Sombra Tétrica",
+        "email": "sombra.tetrica@gmail.com",
+        "edad": 30,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "23.666-653-9",
+        "nombre": "Calaca Alegre",
+        "email": "calaca.alegre@gmail.com",
+        "edad": 104,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "23.999-986-8",
+        "nombre": "Kriptón Alférez",
+        "email": "kripton.alferez@gmail.com",
+        "edad": 42,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "24.333-319-7",
+        "nombre": "Fúnebre Gómez",
+        "email": "funebre.gomez@gmail.com",
+        "edad": 61,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "24.666-652-6",
+        "nombre": "Anacleto Siniestro",
+        "email": "anacleto.siniestro@gmail.com",
+        "edad": 70,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "24.999-985-5",
+        "nombre": "Huesitos Pérez",
+        "email": "huesitos.perez@gmail.com",
+        "edad": 89,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "25.333-318-4",
+        "nombre": "Depre Sivo",
+        "email": "depre.sivo@gmail.com",
+        "edad": 24,
+        "puede_solicitar_prestamos": true
+    },
+    {
+        "rut": "25.666-651-3",
+        "nombre": "Suicida Anónimo",
+        "email": "suicida.anonimo@gmail.com",
+        "edad": 20,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "25.999-984-2",
+        "nombre": "Crematorio López",
+        "email": "crematorio.lopez@gmail.com",
+        "edad": 58,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "26.333-317-1",
+        "nombre": "Cementerio Móvil",
+        "email": "cementerio.movil@gmail.com",
+        "edad": 82,
+        "puede_solicitar_prestamos": false
+    },
+    {
+        "rut": "26.666-650-0",
+        "nombre": "Guadaña Rápida",
+        "email": "guadana.rapida@gmail.com",
+        "edad": 35,
+        "puede_solicitar_prestamos": true
+    }
+]
