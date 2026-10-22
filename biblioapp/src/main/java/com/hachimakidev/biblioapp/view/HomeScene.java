@@ -1,5 +1,6 @@
 package com.hachimakidev.biblioapp.view;
 
+import com.hachimakidev.biblioapp.controller.MaterialController;
 import com.hachimakidev.biblioapp.controller.UserController;
 
 import javafx.scene.Scene;
@@ -40,7 +41,11 @@ public class HomeScene {
         btn_user_search.setOnAction(e -> {
             UserController userController = new UserController();
             userController.test();
+
+            MaterialController ma= new MaterialController();
+            ma.verMateriales();
         });
+
 
 
         return home_scene;

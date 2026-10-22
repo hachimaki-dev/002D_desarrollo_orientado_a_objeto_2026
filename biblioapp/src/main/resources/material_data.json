@@ -1,0 +1,182 @@
+[
+  {
+    "tipo": "libro",
+    "id": 1,
+    "titulo": "El Principito",
+    "fecha_publicacion": "1943",
+    "esta_disponible": true,
+    "autor": "Antoine de Saint-Exupery",
+    "paginas": 96
+  },
+  {
+    "tipo": "libro",
+    "id": 2,
+    "titulo": "Neuromancer",
+    "fecha_publicacion": "1984",
+    "esta_disponible": true,
+    "autor": "William Gibson",
+    "paginas": 271
+  },
+  {
+    "tipo": "libro",
+    "id": 3,
+    "titulo": "Dune",
+    "fecha_publicacion": "1965",
+    "esta_disponible": true,
+    "autor": "Frank Herbert",
+    "paginas": 412
+  },
+  {
+    "tipo": "libro",
+    "id": 4,
+    "titulo": "Fundación",
+    "fecha_publicacion": "1951",
+    "esta_disponible": true,
+    "autor": "Isaac Asimov",
+    "paginas": 255
+  },
+  {
+    "tipo": "libro",
+    "id": 5,
+    "titulo": "Superinteligencia: Caminos, peligros, estrategias",
+    "fecha_publicacion": "2014",
+    "esta_disponible": true,
+    "autor": "Nick Bostrom",
+    "paginas": 352
+  },
+  {
+    "tipo": "libro",
+    "id": 6,
+    "titulo": "El Señor de los Anillos: La Comunidad del Anillo",
+    "fecha_publicacion": "1954",
+    "esta_disponible": true,
+    "autor": "J.R.R. Tolkien",
+    "paginas": 423
+  },
+  {
+    "tipo": "libro",
+    "id": 7,
+    "titulo": "Life 3.0: Being Human in the Age of Artificial Intelligence",
+    "fecha_publicacion": "2017",
+    "esta_disponible": false,
+    "autor": "Max Tegmark",
+    "paginas": 368
+  },
+  {
+    "tipo": "libro",
+    "id": 8,
+    "titulo": "Snow Crash",
+    "fecha_publicacion": "1992",
+    "esta_disponible": true,
+    "autor": "Neal Stephenson",
+    "paginas": 440
+  },
+  {
+    "tipo": "libro",
+    "id": 9,
+    "titulo": "El Nombre del Viento",
+    "fecha_publicacion": "2007",
+    "esta_disponible": true,
+    "autor": "Patrick Rothfuss",
+    "paginas": 872
+  },
+  {
+    "tipo": "libro",
+    "id": 10,
+    "titulo": "Yo, Robot",
+    "fecha_publicacion": "1950",
+    "esta_disponible": true,
+    "autor": "Isaac Asimov",
+    "paginas": 253
+  },
+  {
+    "tipo": "revista",
+    "id": 11,
+    "titulo": "National Geographic",
+    "fecha_publicacion": "2025",
+    "esta_disponible": true,
+    "numeroEdicion": 125,
+    "periodicidad": "Mensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 12,
+    "titulo": "2600: The Hacker Quarterly",
+    "fecha_publicacion": "2025",
+    "esta_disponible": true,
+    "numeroEdicion": 40,
+    "periodicidad": "Trimestral"
+  },
+  {
+    "tipo": "revista",
+    "id": 13,
+    "titulo": "Hakin9",
+    "fecha_publicacion": "2025",
+    "esta_disponible": true,
+    "numeroEdicion": 110,
+    "periodicidad": "Mensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 14,
+    "titulo": "HackSpace Magazine",
+    "fecha_publicacion": "2025",
+    "esta_disponible": true,
+    "numeroEdicion": 75,
+    "periodicidad": "Mensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 15,
+    "titulo": "Wired",
+    "fecha_publicacion": "2026",
+    "esta_disponible": true,
+    "numeroEdicion": 320,
+    "periodicidad": "Mensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 16,
+    "titulo": "MIT Technology Review",
+    "fecha_publicacion": "2026",
+    "esta_disponible": true,
+    "numeroEdicion": 134,
+    "periodicidad": "Bimensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 17,
+    "titulo": "Revista SIC",
+    "fecha_publicacion": "2025",
+    "esta_disponible": false,
+    "numeroEdicion": 165,
+    "periodicidad": "Bimensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 18,
+    "titulo": "Big Data Magazine",
+    "fecha_publicacion": "2025",
+    "esta_disponible": true,
+    "numeroEdicion": 89,
+    "periodicidad": "Mensual"
+  },
+  {
+    "tipo": "revista",
+    "id": 19,
+    "titulo": "HH eZine (HackHiSPANO)",
+    "fecha_publicacion": "2024",
+    "esta_disponible": true,
+    "numeroEdicion": 35,
+    "periodicidad": "Semestral"
+  },
+  {
+    "tipo": "revista",
+    "id": 20,
+    "titulo": "CODE Magazine",
+    "fecha_publicacion": "2026",
+    "esta_disponible": true,
+    "numeroEdicion": 92,
+    "periodicidad": "Bimensual"
+  }
+]
