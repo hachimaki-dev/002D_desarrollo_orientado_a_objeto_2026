@@ -33,6 +33,21 @@ public class UserManager {
     }
 
 
+    public User buscarUsuarioPorRut(String rut){
+
+        for( User usuario  : user_ArrayList ){
+            if( usuario.getRut().equals(rut) ){
+                return usuario;
+            }else{
+                System.out.println("Usuario no encontrado");
+            }
+        }
+
+        return null;
+
+    }
+
+
     public void seraVerdad(){
         for(User user : user_ArrayList){
             System.out.println("--------");
