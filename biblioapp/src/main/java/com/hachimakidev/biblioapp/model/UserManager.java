@@ -4,7 +4,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import org.w3c.dom.events.UIEvent;
+
 
 import com.google.gson.Gson;
 
@@ -32,6 +32,13 @@ public class UserManager {
         }
     }
 
+    public User buscarUsuarioPorRut(String rut){for(User u : user_ArrayList){
+        if ( u.getRut().equals(rut) ){
+            return u;
+        }
+    }
+    return null;
+} 
 
     public void seraVerdad(){
         for(User user : user_ArrayList){

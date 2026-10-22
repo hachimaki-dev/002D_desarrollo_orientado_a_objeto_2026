@@ -1,6 +1,7 @@
 package com.hachimakidev.biblioapp.view;
 
 import com.hachimakidev.biblioapp.controller.UserController;
+import com.hachimakidev.biblioapp.model.User;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
+
 
 public class HomeScene {
   
@@ -39,7 +40,8 @@ public class HomeScene {
 
         btn_user_search.setOnAction(e -> {
             UserController userController = new UserController();
-            userController.test();
+            User usuario_encontrado = userController.solicitarUsuarioPorRut(txf_user_rut.getText());
+            lbl_user_data_nombre.setText("Nombre: " + usuario_encontrado.getNombre());
         });
 
 
