@@ -54,7 +54,7 @@ $MAVEN_HOME_PATH = "C:\apache-maven-3.9.11"
 $ROOT_PATH = $PSScriptRoot
 
 # Proyecto Maven
-$PROJECT_PATH = Join-Path $ROOT_PATH "githubaapp"
+$PROJECT_PATH = Join-Path $ROOT_PATH "biblioapp"
 
 # Archivos importantes
 $POM_PATH = Join-Path $PROJECT_PATH "pom.xml"
@@ -237,7 +237,7 @@ if ($pomContent -notmatch "javafx-maven-plugin") {
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
         <configuration>
-            <mainClass>com.hachimakidev.github.GithubApplication</mainClass>
+            <mainClass>com.hachimakidev.biblioapp.App</mainClass>
         </configuration>
     </plugin>
 </plugins>
