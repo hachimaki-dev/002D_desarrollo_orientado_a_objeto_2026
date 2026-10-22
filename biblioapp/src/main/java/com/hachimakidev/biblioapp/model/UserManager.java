@@ -31,7 +31,7 @@ public class UserManager {
             user_ArrayList.add(usuario);
         }
     }
-
+    
 
     public void seraVerdad(){
         for(User user : user_ArrayList){
@@ -43,5 +43,13 @@ public class UserManager {
             System.out.println(user.isPuede_solicitar_prestamos());
         }
     }
+    public User buscarUsuarioPorRut(String rut){
+        for (User usuario : user_ArrayList) {
+            if (usuario.getRut().equals(rut)) {
+                return usuario;
+            } 
 
+        }
+        return null;
+    }
 }
