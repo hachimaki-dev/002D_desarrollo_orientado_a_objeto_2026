@@ -12,12 +12,10 @@ public class UserManager {
 
     ArrayList<User> user_ArrayList = new ArrayList<>();
 
-
     public UserManager(){
         loadData();
     }
  
-
     public void loadData(){
         InputStream cadena = getClass().getResourceAsStream("/user_data.json");
 
@@ -32,6 +30,15 @@ public class UserManager {
         }
     }
 
+    public User getUserByRut(String rut)
+    {
+        for (User u : user_ArrayList)
+        {
+            if (u.getRut().equals(rut)) return u;
+        }
+
+        return null;
+    }
 
     public void seraVerdad(){
         for(User user : user_ArrayList){
@@ -40,7 +47,7 @@ public class UserManager {
             System.out.println(user.getNombre());
             System.out.println(user.getEdad());
             System.out.println(user.getEmail());
-            System.out.println(user.isPuede_solicitar_prestamos());
+            System.out.println(user.puede_solicitar_prestamos());
         }
     }
 

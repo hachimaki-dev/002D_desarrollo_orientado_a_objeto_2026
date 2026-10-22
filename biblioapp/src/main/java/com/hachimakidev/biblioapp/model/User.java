@@ -47,7 +47,7 @@ public class User {
         this.edad = edad;
     }
 
-    public boolean isPuede_solicitar_prestamos() {
+    public boolean puede_solicitar_prestamos() {
         return puede_solicitar_prestamos;
     }
 
