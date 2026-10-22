@@ -1,6 +1,7 @@
 package com.ferdev.biblioapp.view;
 
 import com.ferdev.biblioapp.controller.UserController;
+import com.ferdev.biblioapp.model.User;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -25,8 +26,14 @@ public class HomeScene {
         VBox main = new VBox(10, hbox_user_search , user_data);
         Scene home_Scene = new Scene(main);
         btn_user_search.setOnAction(e -> {
-            UserController usercontroller = new UserController();
-            usercontroller.Test();
+            UserController userController = new UserController();
+            User userFound = userController.SolicitarUserRut(txf_rut.getText());
+            lbl_user_data_nombre.setText("Nombre :" + userFound.getNombre());
+            lbl_user_data_edad.setText("Edad" + userFound.getEdad());
+            lbl_user_data_rut.setText("Rut" + userFound.getRut());
+            lbl_user_data_email.setText("Email" + userFound.getEmail());
+            lbl_user_data_puede_pedir.setText("Puede pedir" + userFound.isPuede_solicitar_prestamos());
+
         });
         return home_Scene;
  

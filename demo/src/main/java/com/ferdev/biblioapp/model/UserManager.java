@@ -21,6 +21,16 @@ public class UserManager {
             
         }
     }
+    public User buscarUsuarioRut(String rut){
+        for (User u : lista_usuarios) {
+            if (u.getRut().equals(rut)) {
+                return u;
+            }
+        }
+        
+        return null;
+
+    }
     public void prueba(){
         for (User user : lista_usuarios) {
             System.out.println(user.getRut());
