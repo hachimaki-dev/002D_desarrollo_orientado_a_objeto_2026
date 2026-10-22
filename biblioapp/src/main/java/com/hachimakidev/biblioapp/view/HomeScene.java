@@ -1,6 +1,7 @@
 package com.hachimakidev.biblioapp.view;
 
 import com.hachimakidev.biblioapp.controller.UserController;
+import com.hachimakidev.biblioapp.model.User;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -8,7 +9,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 
 public class HomeScene {
   
@@ -39,7 +39,30 @@ public class HomeScene {
 
         btn_user_search.setOnAction(e -> {
             UserController userController = new UserController();
-            userController.test();
+
+            String rut_textfield = txf_user_rut.getText();
+
+            User usuario_encontrado = userController.solicitarUsuarioPorRut(rut_textfield);
+
+            String usuario_nombre = usuario_encontrado.getNombre();
+
+            String usuario_rut = usuario_encontrado.getRut();
+
+            String usuario_correo = usuario_encontrado.getEmail();
+
+            int usuario_edad = usuario_encontrado.getEdad();
+
+            boolean usuario_puede_pedir = usuario_encontrado.isPuede_solicitar_prestamos();
+
+            lbl_user_data_nombre.setText("Nombre: " + usuario_nombre);
+
+            lbl_user_data_rut.setText("Rut: " + usuario_rut);
+
+            lbl_user_data_email.setText("Email: " + usuario_correo);
+
+            lbl_user_data_edad.setText("Edad: " + usuario_edad + "");
+
+            lbl_user_data_puede_pedir.setText("Puede solicitar libros?: " + usuario_puede_pedir + "");
         });
 
 
