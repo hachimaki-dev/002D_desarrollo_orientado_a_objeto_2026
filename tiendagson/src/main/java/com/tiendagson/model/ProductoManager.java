@@ -14,7 +14,7 @@ public class ProductoManager {
         InputStreamReader leer = new InputStreamReader(stream);
         // Gson solo lee texto y Producto se crea con el metodo aplicado de Gson
         Gson gson = new Gson();
-        Producto[] arregloGson = gson.fromJson(leer, Producto[].class);
+        Producto[] arregloGson = gson.fromJson(leer, Bebida[].class);
         return arregloGson;
     }
 }
