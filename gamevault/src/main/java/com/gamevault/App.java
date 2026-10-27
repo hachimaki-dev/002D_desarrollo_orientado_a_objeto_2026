@@ -1,23 +1,21 @@
-package com.hachimakidev.biblioapp;
+package com.gamevault;
 
-import com.hachimakidev.biblioapp.view.HomeScene;
+import com.gamevault.view.GameVaultView;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class App extends  Application{
-    
+public class App extends Application{
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        
 
-        primaryStage.setScene( new HomeScene().homeScene() );
+        primaryStage.setScene(new GameVaultView().gameVaultScene()   );
         primaryStage.show();
     }
-
+    
     public static void main(String[] args) {
         launch(args);
     }
-
-
 }
