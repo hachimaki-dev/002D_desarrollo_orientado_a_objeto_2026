@@ -55,7 +55,7 @@ public class Interfaz  {
 
             lbl_rut.setText(socio.getRut());
             lbl_nombre_socio.setText(socio.getNombre());
-            lbl_nivel.setText(socio.getNivel());
+            lbl_nivel.setText(socio.getNivelGamer());
             lbl_email.setText(socio.getEmail()); 
         });
         

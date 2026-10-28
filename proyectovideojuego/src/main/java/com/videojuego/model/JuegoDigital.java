@@ -1,22 +1,20 @@
 package com.videojuego.model;
 
 public class JuegoDigital extends VideoJuego {
-    private int tamañoGb;
+    private double tamanoGB;
     private String codigoActivacion;
-   
-       public JuegoDigital(String plataforma, String portadaUrl, String titulo, int tamañoGb, String codigoActivacion) {
-        super(plataforma, portadaUrl, titulo);
-        this.tamañoGb = tamañoGb;
+
+    public JuegoDigital(String titulo, String plataforma, String portadaUrl, double tamanoGB, String codigoActivacion) {
+        super(titulo, plataforma, portadaUrl);
+        this.tamanoGB = tamanoGB;
         this.codigoActivacion = codigoActivacion;
     }
-    
-    public int getTamañoGb() {
-        return tamañoGb;
+
+    public double getTamanoGB() {
+        return tamanoGB;
     }
 
     public String getCodigoActivacion() {
         return codigoActivacion;
     }
-
- 
 }

@@ -10,9 +10,6 @@ public class UsuarioAdministrador {
 
     private ArrayList<Usuario> socios_Arraylist = new ArrayList<>();
 
-    //public void UsuarioAdministrador(){
-    //    cargarUsuarios();
-    //}
     
     public UsuarioAdministrador(){ //cuando se cree una instacia de UsuarioAdministrador, se carga automatico cargarDatos Usuario
         cargarDatosUsuarios();
@@ -32,7 +29,7 @@ public class UsuarioAdministrador {
        }
     }
 
-    public Usuario retornarUsuarioPorRutUsuario(String rut){
+    public Usuario retornarUsuarioPorRut(String rut){
         for (Usuario usuario : socios_Arraylist) { // si el rut buscado coincide, va a retornar la info del rut con el q coincidio
             if(usuario.getRut().equals(rut)){
                 return usuario;

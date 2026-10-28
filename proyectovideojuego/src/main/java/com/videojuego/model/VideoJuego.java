@@ -20,12 +20,17 @@ public class VideoJuego {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+
     public String getPlataforma() {
         return plataforma;
     }
     public void setPlataforma(String plataforma) {
         this.plataforma = plataforma;
     }
+
+
+    
     public String getPortadaUrl() {
         return portadaUrl;
     }

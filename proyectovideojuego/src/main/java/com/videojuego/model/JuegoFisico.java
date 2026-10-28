@@ -5,18 +5,19 @@ public class JuegoFisico extends VideoJuego{
     private int pesoGramos;
 
 
-    public JuegoFisico(int pesoGramos, int stockTienda, String plataforma, String portadaUrl, String titulo) {
-        super(plataforma, portadaUrl, titulo);
-        this.pesoGramos = pesoGramos;
+    public JuegoFisico(String titulo, String plataforma, String portadaUrl, int stockTienda, int pesoGramos) {
+        super(titulo, plataforma, portadaUrl);
         this.stockTienda = stockTienda;
+        this.pesoGramos = pesoGramos;
     }
 
 
-    public int getStockTIenda() {
+
+    public int getStockTienda() {
         return stockTienda;
     }
 
-    public void setStockTIenda(int stockTIenda) {
+    public void setStockTienda(int stockTIenda) {
         this.stockTienda = stockTIenda;
     }
 
