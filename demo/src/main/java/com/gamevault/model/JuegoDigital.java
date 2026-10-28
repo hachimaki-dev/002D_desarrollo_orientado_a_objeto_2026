@@ -1,19 +1,23 @@
 package com.gamevault.model;
 
-public class JuegoDigital extends Videojuego{
-    private float tamanioGB;
-    private String codigoActivacion;
+import com.gamevault.Descargable;
 
-    public JuegoDigital(String titulo, String plataforma, String portada, float tamanioGB, String codigoActivacion) {
-        super(titulo, plataforma, portada);
-        this.tamanioGB = tamanioGB;
+public class JuegoDigital extends Videojuego implements Descargable {
+    private double tamanoGB;
+    private String codigoActivacion;
+    public JuegoDigital(String titulo, String plataforma, String portadaUrl, double tamanoGB, String codigoActivacion) {
+        super(titulo, plataforma, portadaUrl);
+        this.tamanoGB = tamanoGB;
         this.codigoActivacion = codigoActivacion;
     }
-    public float getTamanioGB() {
-        return tamanioGB;
-    }
-    public String getCodigoActivacion() {
-        return codigoActivacion;
-    }
+    @Override 
+    public String getFormato(){
+        return "Digital";
 
+    }
+    @Override 
+    public void descargar(){
+        System.out.println("Descargando.." + getTitulo());
+    }
+    
 }

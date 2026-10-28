@@ -3,12 +3,12 @@ package com.gamevault.model;
 public abstract class Videojuego {
     private String titulo;
     private String plataforma;
-    private String portada;
-    
-    public Videojuego(String titulo, String plataforma, String portada) {
+    private String portadaUrl;
+
+    public Videojuego(String titulo , String plataforma , String portadaUrl){
         this.titulo = titulo;
         this.plataforma = plataforma;
-        this.portada = portada;
+        this.portadaUrl = portadaUrl;
     }
 
     public String getTitulo() {
@@ -19,8 +19,12 @@ public abstract class Videojuego {
         return plataforma;
     }
 
-    public String getPortada() {
-        return portada;
+    public String getPortadaUrl() {
+        return portadaUrl;
     }
+    @Override 
+    public String toString(){
+        return titulo;
+    }
+    public abstract String getFormato();
 }
-

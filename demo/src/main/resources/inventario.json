@@ -11,7 +11,7 @@
     "tipo": "digital",
     "titulo": "Cyberpunk 2077: Phantom Liberty",
     "plataforma": "PC / Steam",
-    "tamanioGB": 70.0,
+    "tamanoGB": 70.0,
     "codigoActivacion": "CP77-PL-9948-DUOC",
     "portada": "https://m.media-amazon.com/images/I/71rIuR2w71L._AC_UF1000,1000_QL80_.jpg"
   },
@@ -27,7 +27,7 @@
     "tipo": "digital",
     "titulo": "Hollow Knight",
     "plataforma": "PC / Xbox",
-    "tamanioGB": 9.0,
+    "tamanoGB": 9.0,
     "codigoActivacion": "HK-VOID-2026-XBOX",
     "portada": "https://m.media-amazon.com/images/I/71rE5r820bL._AC_UF1000,1000_QL80_.jpg"
   }

@@ -5,19 +5,28 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 public class InventarioManager {
-    private ArrayList<Videojuego> lista_videojuegos = new ArrayList<>();
-
-    public Videojuego[] leerinventario(){
-        
-
-
-        InputStream stream = getClass().getResourceAsStream("/users.json");
-        InputStreamReader reader = new InputStreamReader(stream);
+    public ArrayList<Videojuego> cargarInventario(){
+        InputStream stream = InventarioManager.class.getResourceAsStream("/inventario.json");
         Gson gson = new Gson();
-        Videojuego[] arreglogson = gson.fromJson(reader, Videojuego[].class);
-        return arreglogson;
+        JsonObject[] datos = gson.fromJson(new InputStreamReader(stream), JsonObject[].class);
+        ArrayList<Videojuego> lista = new ArrayList<>();
+        for (JsonObject o : datos) {
+            switch (o.get("tipo").getAsString()) {
+                case "fisico":
+                    lista.add(new JuegoFisico(o.get("titulo").getAsString(), o.get("plataforma").getAsString(), o.get("portada").getAsString(), o.get("stockTienda").getAsInt(), o.get("pesoGramos").getAsInt()));
+                    
+                    break;
+                case "digital":
+                    break;
+
+                default:
+                    break;
+            }
+            
+        }
+        return lista;
     }
-    
 }
