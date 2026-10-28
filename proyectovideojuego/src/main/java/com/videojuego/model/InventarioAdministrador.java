@@ -6,23 +6,23 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
-public class InventarioAdmin  {
+public class InventarioAdministrador  {
 
     private ArrayList<VideoJuego> inventarios_juegos = new ArrayList<>();
 
-    public InventarioAdmin(){
+    public InventarioAdministrador(){
         cargarInventario();
     }
 
     public void cargarInventario(){
-        InputStream cadena = getClass().getResourceAsStream("/InventarioJuegos.json");
-        InputStreamReader lector = new InputStreamReader(cadena);
+        InputStream capturador = getClass().getResourceAsStream("/InventarioJuegos.json");
+        InputStreamReader lector = new InputStreamReader(capturador);
         
 
         Gson gson = new Gson();
-        VideoJuego[] arreglo = gson.fromJson(lector, VideoJuego[].class);
+        VideoJuego[] inventario = gson.fromJson(lector, VideoJuego[].class);
 
-        for (VideoJuego videoJuego : arreglo) {
+        for (VideoJuego videoJuego : inventario) {
             inventarios_juegos.add(videoJuego);
             
         }

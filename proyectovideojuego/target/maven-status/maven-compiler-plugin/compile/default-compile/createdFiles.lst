@@ -1,0 +1,8 @@
+com\videojuego\Main.class
+com\videojuego\view\Interfaz.class
+com\videojuego\model\Usuario.class
+com\videojuego\model\VideoJuego.class
+com\videojuego\model\InventarioAdmin.class
+com\videojuego\model\JuegoFisico.class
+com\videojuego\model\JuegoDigital.class
+com\videojuego\model\UsuarioAdministrador.class

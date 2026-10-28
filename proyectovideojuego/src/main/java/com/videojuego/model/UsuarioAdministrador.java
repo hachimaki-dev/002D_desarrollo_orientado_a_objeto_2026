@@ -8,26 +8,38 @@ import com.google.gson.Gson;
 
 public class UsuarioAdministrador {
 
-    ArrayList<Usuario> usuario_Arraylist = new ArrayList<>();
+    private ArrayList<Usuario> socios_Arraylist = new ArrayList<>();
 
-    public void UsuarioAdministrador(){
-        cargarUsuarios();
-    }
+    //public void UsuarioAdministrador(){
+    //    cargarUsuarios();
+    //}
     
-    public void cargarUsuarios() {
-        InputStream cadena = getClass().getResourceAsStream("/InventarioUsuario.json");
-        InputStreamReader lector = new InputStreamReader(cadena);
+    public UsuarioAdministrador(){ //cuando se cree una instacia de UsuarioAdministrador, se carga automatico cargarDatos Usuario
+        cargarDatosUsuarios();
+    }
+
+    public void cargarDatosUsuarios() {
+        InputStream capturador = getClass().getResourceAsStream("/InventarioUsuario.json");
+        InputStreamReader lector = new InputStreamReader(capturador);
 
         Gson gson = new Gson();
-        Usuario[] arreglo = gson.fromJson(lector, Usuario[].class);
+        Usuario[] socios = gson.fromJson(lector, Usuario[].class); //cada objeto del json lo transforma clase tipo usuario
 
-       for (Usuario usuario : arreglo ) {
+       for (Usuario usuario : socios ) {
 
-        usuario_Arraylist.add(usuario);
+        socios_Arraylist.add(usuario);
 
        }
     }
 
-    
+    public Usuario retornarUsuarioPorRutUsuario(String rut){
+        for (Usuario usuario : socios_Arraylist) { // si el rut buscado coincide, va a retornar la info del rut con el q coincidio
+            if(usuario.getRut().equals(rut)){
+                return usuario;
+            }
+        }
+        return null;
+    }
+
 
 }

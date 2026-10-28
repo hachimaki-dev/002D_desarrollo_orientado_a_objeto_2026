@@ -54,7 +54,7 @@ $MAVEN_HOME_PATH = "C:\apache-maven-3.9.11"
 $ROOT_PATH = $PSScriptRoot
 
 # Proyecto Maven
-$PROJECT_PATH = Join-Path $ROOT_PATH "biblioapp"
+$PROJECT_PATH = Join-Path $ROOT_PATH "proyectovideojuego"
 
 # Archivos importantes
 $POM_PATH = Join-Path $PROJECT_PATH "pom.xml"
