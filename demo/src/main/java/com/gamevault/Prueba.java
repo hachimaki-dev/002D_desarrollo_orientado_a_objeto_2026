@@ -2,6 +2,7 @@ package com.gamevault;
 
 import java.util.ArrayList;
 
+import com.gamevault.controller.UsuarioController;
 import com.gamevault.model.JuegoDigital;
 import com.gamevault.model.JuegoFisico;
 import com.gamevault.model.Usuario;
