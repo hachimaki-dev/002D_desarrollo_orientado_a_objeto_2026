@@ -1,6 +1,6 @@
 package com.gamevault.model;
 
-public class JuegoDigital extends Juego{
+public class JuegoDigital extends Videojuego{
     private int tamañoGB;
     private String codigoActivacion;
     

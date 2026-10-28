@@ -1,6 +1,6 @@
 package com.gamevault.model;
 
-public class JuegoFisico extends Juego{
+public class JuegoFisico extends Videojuego{
     private int stockTienda;
     private int pesoGramo;
     
