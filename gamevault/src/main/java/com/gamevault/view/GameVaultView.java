@@ -1,131 +1,135 @@
 package com.gamevault.view;
 
 import com.gamevault.controller.InventarioController;
-import com.gamevault.model.JuegoDigital;
-import com.gamevault.model.JuegoFisico;
+import com.gamevault.controller.UsuarioController;
+import com.gamevault.model.Usuario;
 import com.gamevault.model.Videojuego;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableCell;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 public class GameVaultView {
-    public class VideojuegoView {
 
-        private TableView<Videojuego> tablaInventario;
-        private InventarioController inventarioController;
+    private UsuarioController usuarioController;
+    private InventarioController inventarioController;
 
-        public VideojuegoView(){
-            inventarioController = new InventarioController();
-            configurarTabla();
-            cargarTabla();
-        }
-
-        private void configurarTabla(){
-            tablaInventario = new TableView<>();
-            TableColumn<Videojuego, String> colTipo = new TableColumn<>("Tipo");
-            colTipo.setCellValueFactory(data -> {
-                Videojuego videojuego = data.getValue();
-                if (videojuego instanceof JuegoFisico){
-                    return new SimpleStringProperty("Físico");
-                } else if (videojuego instanceof JuegoDigital){
-                    return new SimpleStringProperty("Digital");
-                }
-                return new SimpleStringProperty("Desconocido");
-            });
-            TableColumn<Videojuego, String> colTitulo = new TableColumn<>("Título");
-            colTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
-            TableColumn<Videojuego, String> colPlataforma = new TableColumn<>("Plataforma");
-            colPlataforma.setCellValueFactory(new PropertyValueFactory<>("plataforma"));
-            TableColumn<Videojuego, String> colPortada = new TableColumn<>("Portada");
-            colPortada.setCellValueFactory(new PropertyValueFactory<>("portada"));
-            colPortada.setCellFactory(col -> new TableCell<Videojuego,String>(){
-                private final ImageView imageView = new ImageView();
-
-                @Override 
-                protected void updateItem(String urlImage, boolean empty){
-                    super.updateItem(urlImage, empty);
-                    if (empty || urlImage == null || urlImage.isEmpty()) {
-                        setGraphic(null);
-                    } else {
-                        try {
-                            Image imagen = new Image(urlImage, 50,50,true,true,true);
-                            imageView.setImage(imagen);
-                            setGraphic(imageView);
-                        } catch (Exception e) {
-                            setGraphic(null);
-                        }
-                    }
-                }
-            });
-            TableColumn<Videojuego, String> colStockTienda = new TableColumn<>("Stock");
-            colStockTienda.setCellValueFactory(data -> {
-                if (data.getValue() instanceof JuegoFisico) {
-                    JuegoFisico juegoFisico = (JuegoFisico) data.getValue();
-                    return new SimpleStringProperty(String.valueOf(juegoFisico.getStockTienda()));
-                }
-                return new SimpleStringProperty("-");
-            });
-            TableColumn<Videojuego, String> colPesoGramo = new TableColumn<>("Peso (g)");
-            colPesoGramo.setCellValueFactory(new PropertyValueFactory<>("pesoGramo"));
-            TableColumn<Videojuego, String> colTamañoGB = new TableColumn<>("Tamaño (GB)");
-            colTamañoGB.setCellValueFactory(new PropertyValueFactory<>("tamañoGB"));
-            TableColumn<Videojuego, String> colCodigoActivacion = new TableColumn<>("Código Activación");
-            colCodigoActivacion.setCellValueFactory(new PropertyValueFactory<>("codigoActivacion"));
-        }
-        private void cargarTabla(){
-            ObservableList<Videojuego> inventario = FXCollections.observableArrayList(
-                InventarioController.getInventario()
-            );   
-            tablaInventario.setItems(inventario);
-        }
-        public VBox getVistaInventario(){
-            return new VBox(tablaInventario)
-        }
+    public GameVaultView() {
+        this.usuarioController = new UsuarioController();
+        this.inventarioController = new InventarioController();
     }
-    
 
-    public Scene GameVaultView(){
-        Label lbl_panel_superior = new Label("CONSULTA DE SOCIO GAMER");
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("GAMEVAULT — GESTIÓN DE INVENTARIO Y SOCIOS GAMER");
+
+        VBox mainLayout = new VBox(15);
+        mainLayout.setPadding(new Insets(15));
+        mainLayout.setStyle("-fx-background-color: #1e1e2e;");
+
+        // Header Title
+        Label titleLabel = new Label("GAMEVAULT — GESTIÓN DE INVENTARIO Y SOCIOS GAMER");
+        titleLabel.setStyle("-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #f5e0dc;");
         
-        Label lbl_rut = new Label("Ingrese RUT: ");
-        TextField txfrutusuario = new TextField();
-        txfrutusuario.setPromptText("ej: 11.111.111-1");
-        Button btn_buscar_usuario = new Button("Buscar socio");
-        btn_buscar_usuario.setOnAction(e -> {
-            
+        // -------------------------------------------------------------------
+        // PANEL SUPERIOR: CONSULTA DE SOCIO GAMER
+        // -------------------------------------------------------------------
+        VBox topPanel = new VBox(10);
+        topPanel.setStyle("-fx-border-color: #cba6f7; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: #313244;");
+
+        Label searchTitle = new Label("[ PANEL SUPERIOR: CONSULTA DE SOCIO GAMER ]");
+        searchTitle.setStyle("-fx-font-weight: bold; -fx-text-fill: #cba6f7;");
+
+        HBox searchBox = new HBox(10);
+        searchBox.setAlignment(Pos.CENTER_LEFT);
+        Label lblRutInput = new Label("Ingrese RUT:");
+        lblRutInput.setStyle("-fx-text-fill: #cdd6f4;");
+        
+        TextField txtRut = new TextField();
+        txtRut.setPromptText("19.876.543-2");
+        
+        Button btnBuscar = new Button("Buscar Socio");
+        btnBuscar.setStyle("-fx-background-color: #89b4fa; -fx-text-fill: #11111b; -fx-font-weight: bold;");
+
+        searchBox.getChildren().addAll(lblRutInput, txtRut, btnBuscar);
+
+        // Informacion del Socio
+        Label lblInfo1 = new Label("RUT: --  |  Socio: --  |  Nivel: --");
+        lblInfo1.setStyle("-fx-text-fill: #a6adc8; -fx-font-size: 13px;");
+        Label lblInfo2 = new Label("Email: --");
+        lblInfo2.setStyle("-fx-text-fill: #a6adc8; -fx-font-size: 13px;");
+
+        btnBuscar.setOnAction(e -> {
+            String rutIngresado = txtRut.getText();
+            Usuario user = usuarioController.buscarPorRut(rutIngresado);
+            if (user != null) {
+                lblInfo1.setText("RUT: " + user.getRut() + "  |  Socio: " + user.getNombre() + "  |  Nivel: " + user.getNivelGamer());
+                lblInfo2.setText("Email: " + user.getEmail());
+            } else {
+                lblInfo1.setText("Usuario no encontrado.");
+                lblInfo2.setText("");
+            }
         });
-        HBox hbox_informacion_ingresada = new HBox(lbl_rut,txfrutusuario,btn_buscar_usuario);
 
-        Label lbl_usuario_informacion_rut = new Label("Rut:");
-        Label lbl_usuario_informacion_socio = new Label("Socio:");
-        Label lbl_usuario_informacion_nivel = new Label("Nivel:");
-        Label lbl_usuario_informacion_email= new Label("Email:");
-        HBox hbox_informacion_usuario = new HBox(50,lbl_usuario_informacion_rut,lbl_usuario_informacion_socio,lbl_usuario_informacion_nivel,lbl_usuario_informacion_email);
+        topPanel.getChildren().addAll(searchTitle, searchBox, lblInfo1, lblInfo2);
 
-        Label lbl_panel_inferior = new Label("INVENTARIO DE VIDEOJUEGOS EN TABLEVIEW");
+        // -------------------------------------------------------------------
+        // PANEL INFERIOR: INVENTARIO DE VIDEOJUEGOS EN TABLEVIEW
+        // -------------------------------------------------------------------
+        VBox bottomPanel = new VBox(10);
+        bottomPanel.setStyle("-fx-border-color: #89b4fa; -fx-border-radius: 5; -fx-padding: 10; -fx-background-color: #313244;");
 
-        
+        Label tableTitle = new Label("[ PANEL INFERIOR: INVENTARIO DE VIDEOJUEGOS EN TABLEVIEW ]");
+        tableTitle.setStyle("-fx-font-weight: bold; -fx-text-fill: #89b4fa;");
 
+        TableView<Videojuego> table = new TableView<>();
+        table.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
 
+        TableColumn<Videojuego, String> colFormato = new TableColumn<>("Formato");
+        colFormato.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTipo()));
 
+        TableColumn<Videojuego, String> colTitulo = new TableColumn<>("Título");
+        colTitulo.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getTitulo()));
 
-        VBox main = new VBox(lbl_panel_superior,hbox_informacion_ingresada,hbox_informacion_usuario);
-        Scene GameVaultView = new Scene(main,720,480);
-        return GameVaultView;
+        TableColumn<Videojuego, String> colConsola = new TableColumn<>("Consola");
+        colConsola.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getConsola()));
 
+        TableColumn<Videojuego, String> colDetalle = new TableColumn<>("Detalle");
+        colDetalle.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDetalle()));
 
+        TableColumn<Videojuego, ImageView> colPortada = new TableColumn<>("Portada");
+        colPortada.setCellValueFactory(cellData -> {
+            try {
+                String rutaImagen = cellData.getValue().getImagen();
+                Image img = new Image(getClass().getResourceAsStream("/" + rutaImagen));
+                ImageView imgView = new ImageView(img);
+                imgView.setFitWidth(40);
+                imgView.setFitHeight(40);
+                imgView.setPreserveRatio(true);
+                return new javafx.beans.property.SimpleObjectProperty<>(imgView);
+            } catch (Exception ex) {
+                return new javafx.beans.property.SimpleObjectProperty<>(new ImageView());
+            }
+        });
+
+        table.getColumns().addAll(colFormato, colTitulo, colConsola, colDetalle, colPortada);
+
+        ObservableList<Videojuego> data = FXCollections.observableArrayList(inventarioController.getInventario());
+        table.setItems(data);
+
+        bottomPanel.getChildren().addAll(tableTitle, table);
+
+        mainLayout.getChildren().addAll(titleLabel, topPanel, bottomPanel);
+
+        Scene scene = new Scene(mainLayout, 800, 600);
+        primaryStage.setScene(scene);
+        primaryStage.show();
     }
 }

@@ -1,32 +1,57 @@
 package com.gamevault.model;
 
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
 public class InventarioManager {
-    
-    ArrayList<Videojuego> juego_ArrayList = new ArrayList<>();
+    private List<Videojuego> inventario;
 
-    public InventarioManager(){
-        cargarInformacion();
+    public InventarioManager() {
+        this.inventario = new ArrayList<>();
+        cargarInventario();
     }
-    public void cargarInformacion(){
-        InputStream informacion = getClass().getResourceAsStream("/inventario.json");
-        InputStreamReader lector = new InputStreamReader(informacion);
 
+    public void cargarInventario() {
         Gson gson = new Gson();
+        try (Reader reader = new InputStreamReader(
+                getClass().getResourceAsStream("/inventario.json"), StandardCharsets.UTF_8)) {
 
-        Videojuego[] juego = gson.fromJson(lector, Videojuego[].class);
+            JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
 
-        for (Videojuego info_juego : juego){
-            juego_ArrayList.add(info_juego);
+            for (JsonElement element : jsonArray) {
+                JsonObject jsonObject = element.getAsJsonObject();
+                String tipo = jsonObject.has("tipo") ? jsonObject.get("tipo").getAsString() : "";
+
+                switch (tipo.toLowerCase()) {
+                    case "físico":
+                    case "fisico":
+                        JuegoFisico fisico = gson.fromJson(jsonObject, JuegoFisico.class);
+                        inventario.add(fisico);
+                        break;
+                    case "digital":
+                        JuegoDigital digital = gson.fromJson(jsonObject, JuegoDigital.class);
+                        inventario.add(digital);
+                        break;
+                    default:
+                        System.out.println("Tipo desconocido: " + tipo);
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
-    public void existe(){
-        
+    public List<Videojuego> getInventario() {
+        return inventario;
     }
 }
