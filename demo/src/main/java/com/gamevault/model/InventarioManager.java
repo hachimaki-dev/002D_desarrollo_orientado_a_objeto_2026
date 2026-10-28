@@ -20,6 +20,7 @@ public class InventarioManager {
                     
                     break;
                 case "digital":
+                    lista.add(new JuegoDigital(o.get("titulo").getAsString(), o.get("plataforma").getAsString(), o.get("portada").getAsString(), o.get("tamanoGB").getAsDouble(), o.get("codigoActivacion").getAsString()));
                     break;
 
                 default:
