@@ -1,6 +1,9 @@
 package com.hachimakidev.techstore.controller;
 
+import com.hachimakidev.techstore.model.DispositivoManager;
+
 public class DispositivoController {
+    DispositivoManager dispositivo = new DispositivoManager();
 
     // TODO 1: Instanciar DispositivoManager como atributo del controlador.
 

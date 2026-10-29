@@ -5,7 +5,6 @@ public class Notebook extends Dispositivo {
     private int ramGb;
     private String procesador;
 
-    public Notebook() {}
 
     public Notebook(int id, String marca, String modelo, int precio, boolean disponible, int ramGb, String procesador) {
         super(id, marca, modelo, precio, disponible);
