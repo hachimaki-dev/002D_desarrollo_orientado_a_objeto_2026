@@ -1,0 +1,122 @@
+[
+    {
+        "rut": "18.111.222-3",
+        "nombre": "Diego Alarcón",
+        "email": "diego.gamer@gamevault.cl",
+        "nivelGamer": "Bronce"
+    },
+    {
+        "rut": "19.333.444-5",
+        "nombre": "Javiera Pinto",
+        "email": "javi.pinto@gamevault.cl",
+        "nivelGamer": "Plata"
+    },
+    {
+        "rut": "20.555.666-7",
+        "nombre": "Matías Cárdenas",
+        "email": "matias.pro@gamevault.cl",
+        "nivelGamer": "Leyenda Gamer"
+    },
+    {
+        "rut": "15.444.333-2",
+        "nombre": "Felipe Macías",
+        "email": "felipe.macias@gamevault.cl",
+        "nivelGamer": "Pro"
+    },
+    {
+        "rut": "21.222.333-4",
+        "nombre": "Valentina Soto",
+        "email": "valentina.soto@gamevault.cl",
+        "nivelGamer": "Casual"
+    },
+    {
+        "rut": "17.888.999-K",
+        "nombre": "Carlos Mendoza",
+        "email": "carlos.mendoza@gamevault.cl",
+        "nivelGamer": "Hardcore"
+    },
+    {
+        "rut": "19.123.456-8",
+        "nombre": "Camila Rojas",
+        "email": "camila.rojas@gamevault.cl",
+        "nivelGamer": "Bronce"
+    },
+    {
+        "rut": "16.789.012-3",
+        "nombre": "Esteban Morales",
+        "email": "esteban.morales@gamevault.cl",
+        "nivelGamer": "Leyenda Gamer"
+    },
+    {
+        "rut": "20.987.654-1",
+        "nombre": "Ignacia Fuentes",
+        "email": "ignacia.fuentes@gamevault.cl",
+        "nivelGamer": "Plata"
+    },
+    {
+        "rut": "14.567.890-5",
+        "nombre": "Rodrigo Silva",
+        "email": "rodrigo.silva@gamevault.cl",
+        "nivelGamer": "Pro"
+    },
+    {
+        "rut": "22.111.222-9",
+        "nombre": "Antonia Valdés",
+        "email": "antonia.valdes@gamevault.cl",
+        "nivelGamer": "Casual"
+    },
+    {
+        "rut": "18.333.444-1",
+        "nombre": "Benjamín Torres",
+        "email": "benjamin.torres@gamevault.cl",
+        "nivelGamer": "Hardcore"
+    },
+    {
+        "rut": "19.555.666-2",
+        "nombre": "Sofía Araya",
+        "email": "sofia.araya@gamevault.cl",
+        "nivelGamer": "Bronce"
+    },
+    {
+        "rut": "13.222.111-8",
+        "nombre": "Vicente Gallegos",
+        "email": "vicente.gallegos@gamevault.cl",
+        "nivelGamer": "Leyenda Gamer"
+    },
+    {
+        "rut": "21.444.555-6",
+        "nombre": "Martina Muñoz",
+        "email": "martina.munoz@gamevault.cl",
+        "nivelGamer": "Plata"
+    },
+    {
+        "rut": "17.666.777-4",
+        "nombre": "Lucas Herrera",
+        "email": "lucas.herrera@gamevault.cl",
+        "nivelGamer": "Pro"
+    },
+    {
+        "rut": "20.111.999-0",
+        "nombre": "Florencia Sepúlveda",
+        "email": "florencia.sepulveda@gamevault.cl",
+        "nivelGamer": "Casual"
+    },
+    {
+        "rut": "16.444.222-7",
+        "nombre": "Gabriel Bravo",
+        "email": "gabriel.bravo@gamevault.cl",
+        "nivelGamer": "Hardcore"
+    },
+    {
+        "rut": "19.888.333-5",
+        "nombre": "Josefa Castillo",
+        "email": "josefa.castillo@gamevault.cl",
+        "nivelGamer": "Bronce"
+    },
+    {
+        "rut": "15.999.888-2",
+        "nombre": "Maximiliano Pizarro",
+        "email": "maximiliano.pizarro@gamevault.cl",
+        "nivelGamer": "Leyenda Gamer"
+    }
+]

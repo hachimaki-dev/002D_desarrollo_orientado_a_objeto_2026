@@ -1,0 +1,142 @@
+[
+    {
+        "formato": "Físico",
+        "titulo": "Zelda: Tears of Kingdom",
+        "consola": "Switch",
+        "detalle": "14 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Cyberpunk 2077",
+        "consola": "PC",
+        "detalle": "70.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Elden Ring",
+        "consola": "PS5",
+        "detalle": "8 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Hollow Knight",
+        "consola": "PC/Xbox",
+        "detalle": "9.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Black Myth: Wukong",
+        "consola": "PC/PS5",
+        "detalle": "130.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Super Mario Bros. Wonder",
+        "consola": "Switch",
+        "detalle": "10 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Helldivers 2",
+        "consola": "PC/PS5",
+        "detalle": "70.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Tekken 8",
+        "consola": "PS5/Xbox",
+        "detalle": "6 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Palworld",
+        "consola": "PC/Xbox",
+        "detalle": "40.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Marvel's Spider-Man 2",
+        "consola": "PS5",
+        "detalle": "15 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Forza Horizon 5",
+        "consola": "PC/Xbox",
+        "detalle": "110.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Mario Kart 8 Deluxe",
+        "consola": "Switch",
+        "detalle": "20 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "EA Sports FC 24",
+        "consola": "PC/PS5/Xbox",
+        "detalle": "55.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Demon's Souls",
+        "consola": "PS5",
+        "detalle": "4 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Sea of Thieves",
+        "consola": "PC/PS5/Xbox",
+        "detalle": "100.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Super Smash Bros. Ultimate",
+        "consola": "Switch",
+        "detalle": "18 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Dead Space Remake",
+        "consola": "PC/PS5/Xbox",
+        "detalle": "50.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Street Fighter 6",
+        "consola": "PS5/Xbox",
+        "detalle": "8 unid.",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Digital",
+        "titulo": "Alan Wake 2",
+        "consola": "PC/PS5/Xbox",
+        "detalle": "90.0 GB",
+        "portada": "[Imagen]"
+    },
+    {
+        "formato": "Físico",
+        "titulo": "Pikmin 4",
+        "consola": "Switch",
+        "detalle": "7 unid.",
+        "portada": "[Imagen]"
+    }
+]
