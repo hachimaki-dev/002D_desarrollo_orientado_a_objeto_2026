@@ -1,6 +1,16 @@
 package com.hachimakidev.techstore.controller;
 
+import com.hachimakidev.techstore.model.Dispositivo;
+
 public class DispositivoController {
+
+    public Dispositivo SolicitartipodeDispositivo(String tipo){
+        DispositivoManager DispositivoManager = new DispositivoManager();
+        Dispositivo dispositivo = DispositivoManager.SolicitartipodeDispositivo(tipo);
+        return dispositivo;
+        
+
+    }
 
     // TODO 1: Instanciar DispositivoManager como atributo del controlador.
 
