@@ -17,7 +17,7 @@ public class UsuarioRepository {
         return dao.obtenerTodos();
     }
 
-    public Optional<Usuario> porId(String rut) {
+    public Optional<Usuario> buscarPorRut(String rut) {
         return dao.buscarPorRut(rut);
     }
 }

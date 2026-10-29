@@ -13,7 +13,11 @@ import javafx.scene.layout.VBox;
 
 public class GameVaultView {
 
-    UsuarioController controller = new UsuarioController();
+    private final UsuarioController controller;
+
+    public GameVaultView(UsuarioController controller) {
+        this.controller = controller;
+    }
 
     public Scene gameVaultScene() {
 
@@ -42,7 +46,6 @@ public class GameVaultView {
                 lbl_socio.setText("Socio: " + usuario.getNombre());
                 lbl_nivel.setText("Nivel: " + usuario.getNivelGamer());
                 lbl_email.setText("Email: " + usuario.getEmail());
-
             }
         });
 

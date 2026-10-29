@@ -1,3 +1,5 @@
+classpath:/home/selena2/.m2/repository/org/openjfx/javafx-fxml/25-ea+21/javafx-fxml-25-ea+21.jar	302:1750410067000
+classpath:/home/selena2/.m2/repository/org/openjfx/javafx-fxml/25-ea+21/javafx-fxml-25-ea+21-linux.jar	126711:1750410073000
 classpath:/home/selena2/.m2/repository/com/google/code/gson/gson/2.14.0/gson-2.14.0.jar	313604:1776970907000
 classpath:/home/selena2/.m2/repository/com/google/errorprone/error_prone_annotations/2.48.0/error_prone_annotations-2.48.0.jar	20255:1772198740000
 classpath:/home/selena2/.m2/repository/org/openjfx/javafx-controls/21.0.1/javafx-controls-21.0.1.jar	306:1697565369000
