@@ -38,5 +38,10 @@ public class Smartphone extends Dispositivo {
     public void setCamaraMp(int camaraMp) {
         this.camaraMp = camaraMp;
     }
+
+    public static void add(Smartphone smartphone) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'add'");
+    }
 }
 

@@ -8,6 +8,7 @@ import javafx.scene.layout.VBox;
 public class CatalogoView {
 
     public VBox catalogo() {
+
         // TODO 1: Instanciar DispositivoController para pedirle la lista de dispositivos y registrar nuevos equipos.
 
         Label lbl_titulo = new Label("TechStore — Catálogo de Notebooks y Smartphones");

@@ -1,16 +1,50 @@
 package com.hachimakidev.techstore.model;
 
+import java.util.List;
+
+import com.hachimakidev.techstore.model.Dao.NotebookDao;
+import com.hachimakidev.techstore.model.Dao.NotebookJsonDao;
+import com.hachimakidev.techstore.model.Dao.SmartPhoneJsonDao;
+import com.hachimakidev.techstore.model.Dao.SmartphoneDao;
+
 public class DispositivoManager {
 
-    // TODO 1: Declarar la lista polimórfica ArrayList<Dispositivo> para almacenar notebooks y smartphones.
+    private List<Notebook> notebooks;
+    private List<Smartphone> smartphones;
 
-    // TODO 2: En el constructor, llamar al método que carga los datos desde "/dispositivos.json".
+    private NotebookDao notebookDao;
+    private SmartphoneDao smartphoneDao;
 
-    // TODO 3: Implementar el método de carga usando Gson y JsonObject[]:
-    //   - Si el campo "tipo" es "notebook", convertir el JsonObject a Notebook.class y agregarlo a la lista.
-    //   - Si el campo "tipo" es "smartphone", convertir el JsonObject a Smartphone.class y agregarlo a la lista.
+    public DispositivoManager(){
+        this.notebookDao = new NotebookJsonDao();
+        this.smartphoneDao = new SmartPhoneJsonDao();
+        cargarDatos();
+    }
 
-    // TODO 4: Implementar un método getter para retornar la lista de dispositivos y un método para agregar un nuevo Dispositivo.
+    public void agregarNotebook(Notebook notebook){
+        Notebook.add(notebook);
+    }
+
+    public void agregarSmartphone(Smartphone smartphone){
+        Smartphone.add(smartphone);
+    }
+
+    public List<Notebook> getNotebooks(){
+        return notebooks;
+    }
+
+    public List<Smartphone> gSmartphones(){
+        return smartphones;
+    }
+
+    public void guardarDatos(){
+        notebookDao.guardar(notebooks);
+        smartphoneDao.guardar(smartphones);
+    }
+
+    public void cargarDatos(){
+        this.notebooks = notebookDao.obtenerTodos();
+        this.smartphones = smartphoneDao.obtenerTodos();
+    }
 
 }
-
