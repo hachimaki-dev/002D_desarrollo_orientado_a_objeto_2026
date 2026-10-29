@@ -5,11 +5,10 @@ import com.gamevault.controller.UsuarioController;
 import com.gamevault.model.JuegoDigital;
 import com.gamevault.model.JuegoFisico;
 import com.gamevault.model.Usuario;
-import com.gamevault.model.UsuarioManager;
 import com.gamevault.model.Videojuego;
 
+
 import javafx.application.Application;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
@@ -81,7 +80,7 @@ public class GameVaultView extends  Application{
         });
 
         Label lbl_titulo_panel_inferior = new Label("PANEL INFERIOR: INVENTARIO DE VIDEOJUEGOS TABLEVIEW");
-
+        
         TableView<Videojuego> tablaInventario = new TableView<>();
         TableColumn<Videojuego,String> ColumnaTitulo = new TableColumn<>("Titulo");
         ColumnaTitulo.setCellValueFactory(new PropertyValueFactory<>("titulo"));
@@ -113,13 +112,13 @@ public class GameVaultView extends  Application{
            if (cellData.getValue() instanceof JuegoFisico){
             JuegoFisico juegofisico = (JuegoFisico) cellData.getValue();
             return new SimpleStringProperty(juegofisico.getStockTienda() + "unid.");
-           }
+            }
            if (cellData.getValue() instanceof JuegoDigital){
 
             JuegoDigital juegodigital = (JuegoDigital) cellData.getValue();
             return new SimpleStringProperty(juegodigital.getTamanoGB() + " GB");
-           }
-           return new SimpleStringProperty("");
+            }
+            return new SimpleStringProperty("");
 
         });
 
@@ -127,12 +126,12 @@ public class GameVaultView extends  Application{
         ColumnaPortada.setCellValueFactory(new PropertyValueFactory<>("portada"));
 
         tablaInventario.getColumns().addAll(ColumnaFormato,ColumnaTitulo,ColumnaConsola,ColumnaDetalle,ColumnaPortada);
-
+        
         tablaInventario.setItems(FXCollections.observableArrayList(inventarioController.obtenerInventario()));
         VBox panel_inferior = new VBox(10,lbl_titulo_panel_inferior,tablaInventario);
         
         VBox interfaz = new VBox(collecion_titulo_interfaz,colleccion_lbl_superior, panel_superior,datos_usuario,panel_inferior);
-        Scene menu = new Scene(interfaz, 550, 600);
+        Scene menu = new Scene(interfaz, 550, 600); 
         stage.setScene(menu);
         stage.show();
 
