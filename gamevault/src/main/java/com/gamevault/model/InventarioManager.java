@@ -1,31 +1,33 @@
 package com.gamevault.model;
-
-import java.io.InputStream;
+import com.google.gson.*;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import com.google.gson.Gson;
-
 public class InventarioManager {
-    ArrayList<VideoJuego> inventario_Arraylist = new ArrayList<>();
+    private ArrayList<VideoJuego> inventario = new ArrayList<>();
 
-    public InventarioManager(){
-        loadData();
-    }
-
-    public void loadData(){
-        InputStream cadenaInventario = getClass().getResourceAsStream("/inventario.json");
-
-        InputStreamReader lectorInventario = new InputStreamReader(cadenaInventario);
-
-        Gson gson = new Gson();
-
-        VideoJuego[] inventario = gson.fromJson(lectorInventario, VideoJuego[].class);
-
-        for ( VideoJuego Inventario : inventario){
-            inventario_Arraylist.add (Inventario);
+    public InventarioManager() {
+        try {
+            InputStreamReader reader = new InputStreamReader(getClass().getResourceAsStream("/inventario.json"));
+            JsonArray jsonArray = JsonParser.parseReader(reader).getAsJsonArray();
+            Gson gson = new Gson();
+            for (JsonElement elemento : jsonArray) {
+                JsonObject obj = elemento.getAsJsonObject();
+                String tipo = obj.get("tipo").getAsString();
+                
+                switch (tipo) {
+                    case "fisico":
+                        inventario.add(gson.fromJson(obj, JuegoFisico.class));
+                        break;
+                    case "digital":
+                        inventario.add(gson.fromJson(obj, JuegoDigital.class));
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error leyendo inventario: " + e.getMessage());
         }
     }
-
-    
+    public ArrayList<VideoJuego> getInventario() {
+        return inventario;}
 }

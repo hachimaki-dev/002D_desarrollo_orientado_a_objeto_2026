@@ -1,7 +1,8 @@
 package com.gamevault;
+import com.gamevault.view.GameVaultView;
 
-public class Main {
-    public static void main(String[] args) {
-        System.out.println("Hello world!");
+public class Main{
+    public static void main(String[] args){
+        GameVaultView.main(args);
     }
 }

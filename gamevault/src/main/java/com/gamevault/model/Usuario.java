@@ -1,37 +1,42 @@
 package com.gamevault.model;
 
 public class Usuario {
-    private int rut;
+    private String rut;
     private String nombre;
     private String email;
-    private int nivelGamer;
+    private String nivelGamer;
+
+    Usuario(String rut, String nombre, String email, String nivelGamer) {
+        this.rut = rut;
+        this.nombre = nombre;
+        this.email = email;
+        this.nivelGamer = nivelGamer;
+    }
+    public Usuario(){}
     
-    public int getRut() {
+    public String getRut(){
         return rut;
     }
-    public void setRut(int rut) {
+    public void setRut(String rut){
         this.rut = rut;
     }
-    public String getNombre() {
+    public String getNombre(){
         return nombre;
     }
-    public void setNombre(String nombre) {
+    public void setNombre(String nombre){
         this.nombre = nombre;
     }
     public String getEmail() {
         return email;
     }
-    public void setEmail(String email) {
+    public void setEmail(String email){
         this.email = email;
     }
-    public int getNivelGamer() {
+    public String getNivelGamer(){
         return nivelGamer;
     }
-    public void setNivelGamer(int nivelGamer) {
+    public void setNivelGamer(String nivelGamer){
         this.nivelGamer = nivelGamer;
     }
 
-
-
-    
 }

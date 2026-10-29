@@ -1,20 +1,28 @@
 package com.gamevault.model;
 
 public class JuegoDigital extends VideoJuego{
-private int tamanoGB;
-private int codigoActivacion;
+    private int tamanoGB;
+    private String codigoActivacion;
 
-public int getTamanoGB() {
-    return tamanoGB;
-}
-public void setTamanoGB(int tamanoGB) {
-    this.tamanoGB = tamanoGB;
-}
-public int getCodigoActivacion() {
-    return codigoActivacion;
-}
-public void setCodigoActivacion(int codigoActivacion) {
-    this.codigoActivacion = codigoActivacion;
-}
+    public JuegoDigital(String titulo, String plataforma, String portadaUrl, int tamanoGB, String codigoActivacion){
+        super(titulo, plataforma, portadaUrl);
+        this.tamanoGB = tamanoGB;
+        this.codigoActivacion = codigoActivacion;
+    }
+
+    public JuegoDigital(){
+    }
     
+    public int getTamanoGB(){
+        return tamanoGB;
+    }
+    public void setTamanoGB(int tamanoGB){
+        this.tamanoGB = tamanoGB;
+    }
+    public String getCodigoActivacion(){
+        return codigoActivacion;
+    }
+    public void setCodigoActivacion(String codigoActivacion){
+        this.codigoActivacion = codigoActivacion;
+    }
 }
