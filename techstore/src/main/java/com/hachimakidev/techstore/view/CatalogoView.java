@@ -1,13 +1,45 @@
 package com.hachimakidev.techstore.view;
 
+import com.hachimakidev.techstore.model.Dispositivo;
+
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Material;
 
 public class CatalogoView {
+    private TableView<Dispositivo> tablaDispositivos;
+    private void configurarTabla(){
+        tablaDispositivos = new TableView<>();
+        TableColumn<Dispositivo, String> columna_tipo = new TableColumn<>("Tipo");
+        
+        columna_tipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
 
+        TableColumn<Dispositivo, int> columna_id = new TableColumn<>("Id");
+        columna_id.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        TableColumn<Dispositivo, String> columna_marca = new TableColumn<>("Marca");
+        
+        columna_marca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+       
+        TableColumn<Dispositivo, String> columna_modelo = new TableColumn<>("Modelo");
+        
+        columna_modelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+
+        TableColumn<Dispositivo, int> columna_precio = new TableColumn<>("Precio");
+        columna_precio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+
+       }
     public VBox catalogo() {
+       
+
+       
+
+
         // TODO 1: Instanciar DispositivoController para pedirle la lista de dispositivos y registrar nuevos equipos.
 
         Label lbl_titulo = new Label("TechStore — Catálogo de Notebooks y Smartphones");
