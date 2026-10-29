@@ -3,9 +3,9 @@ package com.gamevault.model;
 public class JuegoDigital extends Videojuego {
 
     private int tamañoGB;
-    private int codigoActivacion;
+    private String codigoActivacion;
 
-    public JuegoDigital(int codigoActivacion, int tamañoGB, String plataforma, String portadaUrl, String titulo) {
+    public JuegoDigital(String codigoActivacion, int tamañoGB, String plataforma, String portadaUrl, String titulo) {
         super(plataforma, portadaUrl, titulo);
         this.codigoActivacion = codigoActivacion;
         this.tamañoGB = tamañoGB;
@@ -15,7 +15,7 @@ public class JuegoDigital extends Videojuego {
         return tamañoGB;
     }
 
-    public int getCodigoActivacion() {
+    public String getCodigoActivacion() {
         return codigoActivacion;
     }
 

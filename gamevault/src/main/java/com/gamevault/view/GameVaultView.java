@@ -1,12 +1,16 @@
 package com.gamevault.view;
 
+
 import com.gamevault.controller.UsuarioController;
 import com.gamevault.model.Usuario;
+import com.gamevault.model.Videojuego;
 
+import javafx.scene.control.TableColumn;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -50,6 +54,13 @@ public class GameVaultView {
         });
 
         VBox vbox_consulta_socio = new VBox(5, hbox_user_rut, lbl_rut, lbl_socio, lbl_nivel, lbl_email);
+
+        Label lbl_inventario = new Label("Inventario de videojuegos");
+
+        TableView<Videojuego> tabla = new TableView<>();
+        TableColumn<Videojuego, String> col_titulo = new TableColumn<>("Titulo");
+
+
 
         VBox main = new VBox(15, vbox_consulta_socio);
         main.setPadding(new Insets(20));
