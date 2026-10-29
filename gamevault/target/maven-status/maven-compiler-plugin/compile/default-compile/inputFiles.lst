@@ -1,0 +1,11 @@
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/App.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/Main.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/controller/InventarioController.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/controller/UsuarioController.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/model/InventarioManager.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/model/JuegoDigital.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/model/JuegoFisico.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/model/Usuario.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/model/UsuarioManager.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/model/Videojuego.java
+/home/selena2/002D_desarrollo_orientado_a_objeto_2026/gamevault/src/main/java/com/gamevault/view/GameVaultView.java

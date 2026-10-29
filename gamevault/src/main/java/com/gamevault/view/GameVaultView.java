@@ -2,6 +2,8 @@ package com.gamevault.view;
 
 import com.gamevault.controller.UsuarioController;
 import com.gamevault.model.Usuario;
+
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -47,6 +49,7 @@ public class GameVaultView {
         VBox vbox_consulta_socio = new VBox(5, hbox_user_rut, lbl_rut, lbl_socio, lbl_nivel, lbl_email);
 
         VBox main = new VBox(15, vbox_consulta_socio);
+        main.setPadding(new Insets(20));
 
         Scene scene = new Scene(main, 720, 480);
 

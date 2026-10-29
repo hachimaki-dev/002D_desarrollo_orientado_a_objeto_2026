@@ -1,0 +1,11 @@
+com/gamevault/view/GameVaultView.class
+com/gamevault/Main.class
+com/gamevault/model/InventarioManager.class
+com/gamevault/model/UsuarioManager.class
+com/gamevault/model/JuegoFisico.class
+com/gamevault/controller/UsuarioController.class
+com/gamevault/model/JuegoDigital.class
+com/gamevault/controller/InventarioController.class
+com/gamevault/model/Usuario.class
+com/gamevault/App.class
+com/gamevault/model/Videojuego.class
