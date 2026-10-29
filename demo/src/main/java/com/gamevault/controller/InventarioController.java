@@ -5,7 +5,7 @@ import com.gamevault.model.Videojuego;
 import java.util.ArrayList;
 
 public class InventarioController {
-    public ArrayList<Videojuego> obtenerInformacion(){
+    public ArrayList<Videojuego> obtenerInventario(){
         InventarioManager manager = new InventarioManager();
         return manager.cargarInventario();
     }
