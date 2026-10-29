@@ -23,10 +23,10 @@ public class GameVaultView {
         Button btn_user_rut = new Button("Buscar");
         HBox hbox_user_rut = new HBox(5, lbl_user_rut, txf_user_rut, btn_user_rut);
 
-        Label lbl_rut = new Label("RUT: ");
-        Label lbl_socio = new Label("Socio: ");
-        Label lbl_nivel = new Label("Nivel: ");
-        Label lbl_email = new Label("Email: ");
+        Label lbl_rut = new Label("RUT: --------------------");
+        Label lbl_socio = new Label("Socio: -------------------");
+        Label lbl_nivel = new Label("Nivel: -------------------");
+        Label lbl_email = new Label("Email: -------------------");
 
         btn_user_rut.setOnAction(e -> {
             lbl_rut.setText("RUT: -");
