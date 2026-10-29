@@ -54,7 +54,7 @@ $MAVEN_HOME_PATH = "C:\apache-maven-3.9.11"
 $ROOT_PATH = $PSScriptRoot
 
 # Proyecto Maven
-$PROJECT_PATH = Join-Path $ROOT_PATH "biblioapp"
+$PROJECT_PATH = Join-Path $ROOT_PATH "techstore"
 
 # Archivos importantes
 $POM_PATH = Join-Path $PROJECT_PATH "pom.xml"
@@ -158,7 +158,7 @@ if (-not (Test-Path $PROJECT_PATH)) {
     Write-Host $PROJECT_PATH
     Write-Host ""
     Write-Host "La estructura esperada es:"
-    Write-Host "$ROOT_PATH\githubaapp\pom.xml"
+    Write-Host "$ROOT_PATH\techstore\pom.xml"
     exit 1
 }
 
@@ -237,7 +237,7 @@ if ($pomContent -notmatch "javafx-maven-plugin") {
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
         <configuration>
-            <mainClass>com.hachimakidev.biblioapp.App</mainClass>
+            <mainClass>com.hachimakidev.github.GithubApplication</mainClass>
         </configuration>
     </plugin>
 </plugins>
