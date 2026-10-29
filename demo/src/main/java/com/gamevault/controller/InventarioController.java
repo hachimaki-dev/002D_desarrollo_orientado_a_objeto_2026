@@ -9,5 +9,4 @@ public class InventarioController {
         InventarioManager manager = new InventarioManager();
         return manager.cargarInventario();
     }
-
 }
