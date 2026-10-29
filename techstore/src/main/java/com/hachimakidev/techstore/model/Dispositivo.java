@@ -62,3 +62,4 @@ public abstract class Dispositivo {
         this.disponible = disponible;
     }
 }
+

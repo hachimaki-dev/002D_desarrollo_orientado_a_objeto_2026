@@ -39,3 +39,4 @@ public class Notebook extends Dispositivo {
         this.procesador = procesador;
     }
 }
+

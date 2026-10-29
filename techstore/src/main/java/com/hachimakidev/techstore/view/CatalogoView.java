@@ -36,3 +36,4 @@ public class CatalogoView {
         return layout_principal;
     }
 }
+

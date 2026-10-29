@@ -13,3 +13,4 @@ public class DispositivoManager {
     // TODO 4: Implementar un método getter para retornar la lista de dispositivos y un método para agregar un nuevo Dispositivo.
 
 }
+

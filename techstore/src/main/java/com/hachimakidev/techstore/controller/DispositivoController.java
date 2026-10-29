@@ -9,3 +9,4 @@ public class DispositivoController {
     // TODO 3: Crear el método para validar y agregar un nuevo Notebook o Smartphone a la lista del manager.
 
 }
+
