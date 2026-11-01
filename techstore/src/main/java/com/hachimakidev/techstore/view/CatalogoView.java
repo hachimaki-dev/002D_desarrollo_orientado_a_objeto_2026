@@ -1,116 +1,79 @@
 package com.hachimakidev.techstore.view;
 
 import com.hachimakidev.techstore.controller.DispositivoController;
+import com.hachimakidev.techstore.model.Dispositivo;
 
-import javafx.geometry.Insets;
-import javafx.scene.control.Label;
-import javafx.scene.layout.HBox;
+import javafx.collections.FXCollections;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
-public class CatalogoView{
-
-    public Scene catalogo() {
-
-        Label lbl_Encabezado = new Label("TechStore | Catálogo de Notebooks y Smartphones");
-        lbl_Encabezado.setStyle("-fx-text-fill: #fff" , "-fx-font-size: 15px;" + "-fx-font-weight: bold;");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Vbox ViewMain= new VBox(); 
-        ViewMian.setPadding(new Insets(15));
-        ViewMain.setStyle("-fx-Background-color: #FFFF;" , " fx-font-family: 'Courier New'" , "monospace;");
-
-        ViewMain.getChildren().addAll(
-
-        );
-
-        Scene catalogo = new Scene(ViewMain, 720, 480);
-        return catalogo;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        // TODO 1: Instanciar DispositivoController para pedirle la lista de dispositivos y registrar nuevos equipos.
-
-        //Label lbl_titulo = new Label("TechStore — Catálogo de Notebooks y Smartphones");
-        //lbl_titulo.setStyle("-fx-font-size: 18px; -fx-font-weight: bold;");
-//
-        //// TODO 2: Reemplazar este contenedor temporal por un TableView<Dispositivo>
-        ////   - Crear columnas con PropertyValueFactory para: "id", "tipo", "marca", "modelo", "precio", "especificacion", "disponible"
-        ////   - Poblar la tabla usando FXCollections.observableArrayList(...) con la lista del controlador
-        //Label lbl_placeholder_tabla = new Label("[ TODO: Construir aquí el TableView<Dispositivo> con los datos de dispositivos.json ]");
-        //VBox contenedor_tabla = new VBox(10, lbl_placeholder_tabla);
-        //contenedor_tabla.setPadding(new Insets(20));
-        //contenedor_tabla.setStyle("-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-color: #f8fafc;");
-//
-        //// TODO 3: Construir el formulario en este contenedor para agregar un nuevo Notebook o Smartphone
-        ////   - Incluir controles (TextField / ComboBox) para ingresar los datos del nuevo dispositivo
-        ////   - Incluir un Button "Agregar Dispositivo" cuyo setOnAction cree el objeto, lo envíe al controlador y actualice la TableView
-        //Combobox<Stirng> seleccion_dispositivo = new Combo
-        //Label lbl_placeholder_form = new Label("[ TODO: Construir aquí el formulario para agregar un nuevo Dispositivo a la TableView ]");
-        //HBox fila_formulario = new HBox(10, lbl_placeholder_form);
-        //VBox contenedor_formulario = new VBox(10, fila_formulario);
-        //contenedor_formulario.setPadding(new Insets(16));
-        //contenedor_formulario.setStyle("-fx-border-color: #cbd5e1; -fx-border-radius: 6; -fx-background-color: #ffffff;");
-//
-        //VBox layout_principal = new VBox(16, lbl_titulo, contenedor_tabla, contenedor_formulario);
-        //layout_principal.setPadding(new Insets(20));
-//
-        //return layout_principal;
-    }
+// imports: DispositivoController, Dispositivo, TableView, TableColumn,
+// PropertyValueFactory, FXCollections, Label, Button, VBox/HBox, Insets
+
+public class CatalogoView {
+
+    private DispositivoController controller = new DispositivoController();
+
+    public VBox catalogo() {
+        // 1. TableView<Dispositivo> tabla
+        TableView<Dispositivo> tabla = new TableView<>();
+        TableColumn<Dispositivo , Integer> colId = new TableColumn<>("ID");
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        tabla.getColumns().add(colId);
+        TableColumn<Dispositivo , String> colTipo = new TableColumn<>("Tipo");
+        colTipo.setCellValueFactory(new PropertyValueFactory<>("tipo"));
+        tabla.getColumns().add(colTipo);
+        TableColumn<Dispositivo , String> colMarca = new TableColumn<>("Marca");
+        colMarca.setCellValueFactory(new PropertyValueFactory<>("marca"));
+        tabla.getColumns().add(colMarca);
+        TableColumn<Dispositivo , String> colModelo = new TableColumn<>("Modelo");
+        colModelo.setCellValueFactory(new PropertyValueFactory<>("modelo"));
+        tabla.getColumns().add(colModelo);
+        TableColumn<Dispositivo , Integer> colPrecio = new TableColumn<>("Precio");
+        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        tabla.getColumns().add(colPrecio);
+        TableColumn<Dispositivo , String> colEspecificacion = new TableColumn<>("Especificacion");
+        colEspecificacion.setCellValueFactory(new PropertyValueFactory<>("especificacion"));
+        tabla.getColumns().add(colEspecificacion);
+        TableColumn<Dispositivo , Boolean> colDisponible = new TableColumn<>("Disponible");
+        colDisponible.setCellValueFactory(new PropertyValueFactory<>("disponible"));
+        tabla.getColumns().add(colDisponible);
+        tabla.setItems(FXCollections.observableArrayList(controller.obtenerDispositivos()));
+        ComboBox<String> cmbTipo = new ComboBox<>();
+        cmbTipo.getItems().addAll("Notebook" , "Smartphone");
+        TextField txtMarca = new TextField();
+        txtMarca.setPromptText("Agregar Marca");
+        TextField txtModelo = new TextField();
+        txtModelo.setPromptText("Agregar Modelo");
+        TextField txtPrecio = new TextField();
+        txtPrecio.setPromptText("Agregar Precio");
+        TextField txtRamGb = new TextField();
+        txtRamGb.setPromptText("Agregar Ram");
+        TextField txtProcesador = new TextField();
+        txtProcesador.setPromptText("Agregar Procesador");
+        TextField txtAlmacenamientoGb = new TextField();
+        txtAlmacenamientoGb.setPromptText("Agregar Almacenamiento en GB");
+        TextField txtCamaraMp = new TextField();
+        txtCamaraMp.setPromptText("Agregar Megapixeles de Camara");
+        VBox CamposNotebook = new VBox(5 , txtRamGb , txtProcesador);
+        VBox CamposSmartphone = new VBox(5 , txtAlmacenamientoGb , txtCamaraMp);
+        CamposNotebook.setVisible(false);
+        CamposNotebook.setManaged(false);
+        CamposSmartphone.setVisible(false);
+        CamposSmartphone.setManaged(false);
+        cmbTipo.setOnAction(e -> {
+                String tipo = cmbTipo.getValue();
+                CamposNotebook.setVisible(tipo.equals("Notebook"));
+                CamposNotebook.setManaged(tipo.equals("Notebook"));
+                CamposSmartphone.setVisible(tipo.equals("Smartphone"));
+                CamposSmartphone.setManaged(tipo.equals("Smartphone"));
+        });
+        return new VBox(10 , tabla , cmbTipo , txtMarca , txtModelo , txtPrecio , CamposNotebook , CamposSmartphone);
 }
 
+}

@@ -1,48 +1,66 @@
 package com.hachimakidev.techstore.model;
 
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
 public class DispositivoManager {
-
-    ArrayList<dispotivos> lista_dispositivos = new ArrayList<>();
-
-    public void loaddate(){
-        InputStream cadena = getClass().getResourceAsStream("/dispositivos.josn");
-
-        InputStream lector = new InputStream(cadena);
-
-        Gson gson = new Gson();
-
-        dispositivo[] Dispositivo = gson.fromJson(lector, Dispositivo[].class);
-
-        for(Dispositivo buscar_dispositivo: dispositivo){
-            lista_dispositivos.add(dispositivo);
-        }
-    }
-
-    public Dispositivo(String tipo){
-        for(Dispositivo tipo_de_dispositivo : lista_dispositivos){
-            if(tipo_de_dispositivo.getTipo().equals(tipo)){
-               return tipo_de_dispositivo; 
-            }
-
-            return null;
-        }
-    }
+    private ArrayList<Dispositivo> dispositivos = new ArrayList<>();
 
     public DispositivoManager(){
-        loaddate();
+        cargarDatos();
     }
 
-    // TODO 1: Declarar la lista polimórfica ArrayList<Dispositivo> para almacenar notebooks y smartphones.
+    public void cargarDatos(){
+        InputStream stream = getClass().getResourceAsStream("/dispositivos.json");
+        if (stream == null) {
+            throw new IllegalStateException("El JSON dispositivos.json no se ha encontrado");
+            
+        }
+        Gson gson = new Gson();
+        InputStreamReader reader = new InputStreamReader(stream);
+        JsonObject[] arregloGson = gson.fromJson(reader, JsonObject[].class);
+        for (JsonObject i : arregloGson) {
+            String tipo = i.get("tipo").getAsString();
+            switch (tipo) {
+                case "notebook":
+                    Notebook notebook = gson.fromJson(i, Notebook.class);
+                    if (!esValido(notebook)) {
+                        throw new IllegalArgumentException("Dispositivo invalido ID=" + notebook.getId() + "Modelo =" + notebook.getModelo());
+                    }
+                    dispositivos.add(notebook);
+                    break;
+                case "smartphone":
+                    Smartphone smartphone = gson.fromJson(i, Smartphone.class);
+                    if(!esValido(smartphone)){
+                        throw new IllegalArgumentException("Dispositivo invalido ID=" + smartphone.getId() + "Modelo =" + smartphone.getModelo());
+                    }
+                    dispositivos.add(smartphone);
+                    break;
+                default:
+                    break;
+            }
+            
+        }
 
-    // TODO 2: En el constructor, llamar al método que carga los datos desde "/dispositivos.json".
+    }
+    private boolean esValido(Dispositivo d){
+        return d.getPrecio() > 0;
+    }
+    public ArrayList<Dispositivo> getDispositivos(){
+        return dispositivos;
+    }
+    public void agregarDispositivo(Dispositivo nuevo){
+        if (!esValido(nuevo)) {
+            throw new IllegalArgumentException("Id del dispositivo =" + nuevo.getId() + "Modelo" + nuevo.getModelo());
 
-    // TODO 3: Implementar el método de carga usando Gson y JsonObject[]:
-    //   - Si el campo "tipo" es "notebook", convertir el JsonObject a Notebook.class y agregarlo a la lista.
-    //   - Si el campo "tipo" es "smartphone", convertir el JsonObject a Smartphone.class y agregarlo a la lista.
+            
+        }
+        dispositivos.add(nuevo);
 
-    // TODO 4: Implementar un método getter para retornar la lista de dispositivos y un método para agregar un nuevo Dispositivo.
+    }
 }
 
