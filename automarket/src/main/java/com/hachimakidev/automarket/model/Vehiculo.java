@@ -1,6 +1,6 @@
-package com.hachimakidev.techstore.model;
+package com.hachimakidev.automarket.model;
 
-public abstract class Dispositivo {
+public abstract class Vehiculo {
 
     private int id;
     private String marca;
@@ -8,9 +8,9 @@ public abstract class Dispositivo {
     private int precio;
     private boolean disponible;
 
-    public Dispositivo() {}
+    public Vehiculo() {}
 
-    public Dispositivo(int id, String marca, String modelo, int precio, boolean disponible) {
+    public Vehiculo(int id, String marca, String modelo, int precio, boolean disponible) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;

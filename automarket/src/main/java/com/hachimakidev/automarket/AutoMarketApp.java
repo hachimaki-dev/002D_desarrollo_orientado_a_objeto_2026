@@ -1,17 +1,17 @@
-package com.hachimakidev.techstore;
+package com.hachimakidev.automarket;
 
-import com.hachimakidev.techstore.view.HomeView;
+import com.hachimakidev.automarket.view.HomeView;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class TechStoreApp extends Application {
+public class AutoMarketApp extends Application {
 
     @Override
     public void start(Stage stage) {
         HomeView home_view = new HomeView();
 
-        stage.setTitle("TechStore — Inventario de Dispositivos");
+        stage.setTitle("AutoMarket — Inventario de Vehículos");
         stage.setScene(home_view.homeScene());
         stage.show();
     }

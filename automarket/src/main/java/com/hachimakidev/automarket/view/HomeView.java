@@ -1,4 +1,4 @@
-package com.hachimakidev.techstore.view;
+package com.hachimakidev.automarket.view;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;

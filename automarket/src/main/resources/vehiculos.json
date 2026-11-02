@@ -1,0 +1,103 @@
+[
+  {
+    "tipo": "automovil",
+    "id": 1,
+    "marca": "Toyota",
+    "modelo": "Corolla Hybrid",
+    "precio": 18990000,
+    "disponible": true,
+    "puertas": 4,
+    "transmision": "Automática"
+  },
+  {
+    "tipo": "motocicleta",
+    "id": 2,
+    "marca": "Yamaha",
+    "modelo": "MT-07",
+    "precio": 8490000,
+    "disponible": true,
+    "cilindradaCc": 689,
+    "velocidadMaxKmh": 210
+  },
+  {
+    "tipo": "automovil",
+    "id": 3,
+    "marca": "Mazda",
+    "modelo": "Mazda 3 Sport",
+    "precio": 17490000,
+    "disponible": true,
+    "puertas": 5,
+    "transmision": "Mecánica"
+  },
+  {
+    "tipo": "motocicleta",
+    "id": 4,
+    "marca": "Honda",
+    "modelo": "CB500X",
+    "precio": 7290000,
+    "disponible": true,
+    "cilindradaCc": 471,
+    "velocidadMaxKmh": 185
+  },
+  {
+    "tipo": "automovil",
+    "id": 5,
+    "marca": "Subaru",
+    "modelo": "Crosstrek AWD",
+    "precio": 22990000,
+    "disponible": false,
+    "puertas": 5,
+    "transmision": "Automática"
+  },
+  {
+    "tipo": "motocicleta",
+    "id": 6,
+    "marca": "Kawasaki",
+    "modelo": "Ninja 400",
+    "precio": 6590000,
+    "disponible": true,
+    "cilindradaCc": 399,
+    "velocidadMaxKmh": 190
+  },
+  {
+    "tipo": "automovil",
+    "id": 7,
+    "marca": "Suzuki",
+    "modelo": "Swift Sport",
+    "precio": 14990000,
+    "disponible": true,
+    "puertas": 5,
+    "transmision": "Mecánica"
+  },
+  {
+    "tipo": "motocicleta",
+    "id": 8,
+    "marca": "BMW",
+    "modelo": "G 310 GS",
+    "precio": 5990000,
+    "disponible": true,
+    "cilindradaCc": 313,
+    "velocidadMaxKmh": 143
+  },
+  {
+    "tipo": "automovil",
+    "id": 9,
+    "marca": "Hyundai",
+    "modelo": "Tucson NX4",
+    "precio": 21490000,
+    "disponible": true,
+    "puertas": 5,
+    "transmision": "Automática"
+  },
+  {
+    "tipo": "motocicleta",
+    "id": 10,
+    "marca": "Suzuki",
+    "modelo": "V-Strom 650",
+    "precio": 8990000,
+    "disponible": false,
+    "cilindradaCc": 645,
+    "velocidadMaxKmh": 200
+  }
+]
+
