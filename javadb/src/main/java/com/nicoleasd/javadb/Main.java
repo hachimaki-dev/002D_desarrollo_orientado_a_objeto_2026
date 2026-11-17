@@ -1,4 +1,4 @@
-package com.hachimakidev.biblioapp;
+package com.nicoleasd.javadb;
 
 public class Main {
     public static void main(String[] args) {
