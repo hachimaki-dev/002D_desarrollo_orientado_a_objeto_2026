@@ -1,0 +1,7 @@
+classpath:/home/ferdev/.m2/repository/org/openjfx/javafx-controls/21.0.1/javafx-controls-21.0.1.jar	306:1697565369000
+classpath:/home/ferdev/.m2/repository/org/openjfx/javafx-controls/21.0.1/javafx-controls-21.0.1-linux.jar	2585144:1697565375000
+classpath:/home/ferdev/.m2/repository/org/openjfx/javafx-graphics/21.0.1/javafx-graphics-21.0.1.jar	306:1697565424000
+classpath:/home/ferdev/.m2/repository/org/openjfx/javafx-graphics/21.0.1/javafx-graphics-21.0.1-linux.jar	4689419:1697565460000
+classpath:/home/ferdev/.m2/repository/org/openjfx/javafx-base/21.0.1/javafx-base-21.0.1.jar	302:1697565344000
+classpath:/home/ferdev/.m2/repository/org/openjfx/javafx-base/21.0.1/javafx-base-21.0.1-linux.jar	754325:1697565344000
+classpath:/home/ferdev/.m2/repository/com/oracle/database/jdbc/ojdbc11/23.5.0.24.07/ojdbc11-23.5.0.24.07.jar	7199197:1722016145000
