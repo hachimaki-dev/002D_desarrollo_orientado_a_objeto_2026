@@ -7,7 +7,10 @@ import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -24,6 +27,16 @@ public class VentanaJuego extends Application {
         txfPrecio.setPromptText("Ingrese el precio");
         TextField txfConsola = new TextField();
         txfConsola.setPromptText("Ingrese la consola");
+        TableView<Juego> tabla = new TableView<>();
+        TableColumn<Juego , Integer> colId = new TableColumn<>("Id");
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        TableColumn<Juego , String> colNombre = new TableColumn<>("Juego");
+        colNombre.setCellValueFactory(new PropertyValueFactory<>("nombre"));
+        TableColumn<Juego , BigDecimal> colPrecio = new TableColumn<>("Precio");
+        colPrecio.setCellValueFactory(new PropertyValueFactory<>("precio"));
+        TableColumn<Juego , String> colConsola = new TableColumn<>("Consola");
+        colConsola.setCellValueFactory(new PropertyValueFactory<>("consola"));
+        tabla.getColumns().addAll(colId , colNombre , colPrecio , colConsola);
         Button btnInsertar = new Button("Ingresar");
         btnInsertar.setOnAction(e -> {
             String nombre = txfNombre.getText();
@@ -43,7 +56,7 @@ public class VentanaJuego extends Application {
 
             }
         });
-        VBox contenedor = new VBox(txfNombre , txfPrecio , txfConsola , btnInsertar);
+        VBox contenedor = new VBox(tabla , txfNombre , txfPrecio , txfConsola , btnInsertar);
         Scene primaryScene = new Scene(contenedor , 720 , 400);
         primaryStage.setScene(primaryScene);
         primaryStage.show();
