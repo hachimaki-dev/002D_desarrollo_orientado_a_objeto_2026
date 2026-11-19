@@ -1,7 +1,7 @@
-package com.hachimakidev.biblioapp;
+package com.daniel.kiosco;
 
 public class Main {
     public static void main(String[] args) {
-        App.main(args);
+        KioscoApp.main(args);
     }
 }
