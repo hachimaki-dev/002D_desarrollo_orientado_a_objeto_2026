@@ -15,7 +15,7 @@ public class Producto {
         this.precio = precio;
         this.stock = stock;
     }
-
+//
     public Producto(String nombre, String categoria, int precio, int stock)
     {
         this.nombre = nombre;

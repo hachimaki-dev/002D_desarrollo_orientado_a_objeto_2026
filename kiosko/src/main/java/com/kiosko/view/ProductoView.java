@@ -180,6 +180,7 @@ public class ProductoView {
                 txtCategoria.getText(),
                 txtPrecio.getText(),
                 cmbRol.getValue()
+                //
         );
 
         if (exito) {
