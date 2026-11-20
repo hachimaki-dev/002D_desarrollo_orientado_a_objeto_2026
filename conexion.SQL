@@ -1,7 +1,7 @@
 ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;
 
--- Crear el usuario de trabajo con contraseña 123456
-CREATE USER usuario_desarrollador IDENTIFIED BY "123456"
+-- Crear el usuario de trabajo con contraseña 12345
+CREATE USER usuario_desarrollador IDENTIFIED BY "Oracle12345"
 DEFAULT TABLESPACE "USERS"
 TEMPORARY TABLESPACE "TEMP";
 

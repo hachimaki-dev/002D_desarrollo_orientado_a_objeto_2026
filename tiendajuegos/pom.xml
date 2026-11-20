@@ -4,8 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.alexzzz.javadb</groupId>
-    <artifactId>javadb</artifactId>
+    <groupId>com.alexzzz.java</groupId>
+    <artifactId>tiendajuegos</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -14,8 +14,7 @@
     </properties>
 
     <dependencies>
-        <!-- Librería de controles gráficos JavaFX -->
-        <dependency>
+     <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-controls</artifactId>
             <version>21.0.1</version>
