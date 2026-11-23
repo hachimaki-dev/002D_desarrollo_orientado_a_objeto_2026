@@ -1,6 +1,7 @@
+-- Habilita la creación de usuarios con nombres normales en Oracle 12c/19c/21c/23ai
 ALTER SESSION SET "_ORACLE_SCRIPT"=TRUE;
 
--- Crear el usuario de trabajo con contraseña 12345
+-- Crear el usuario de trabajo con contraseña 123456
 CREATE USER usuario_desarrollador IDENTIFIED BY "Oracle12345"
 DEFAULT TABLESPACE "USERS"
 TEMPORARY TABLESPACE "TEMP";
