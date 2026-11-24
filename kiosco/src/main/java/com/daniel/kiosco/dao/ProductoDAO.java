@@ -11,25 +11,24 @@ import com.daniel.kiosco.model.Producto;
 
 public class ProductoDAO {
     public boolean guardar(Producto producto) {
-        String sql_insert = "INSERT INTO productos (nombre, categoria, precio, stock) VALUES ('?', '?', '?','?');";
+    String sql_insert = "INSERT INTO productos (nombre, categoria, precio, stock) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = ConexionDB.obtenerConexion()) {
-            PreparedStatement ps = conn.prepareStatement(sql_insert);
+    try (Connection conn = ConexionDB.obtenerConexion();
+         PreparedStatement ps = conn.prepareStatement(sql_insert)) {
 
-            ps.setString(1, producto.getNombre());
-            ps.setString(2, producto.getCategoria());
-            ps.setInt(3, producto.getPrecio());
-            ps.setInt(4, producto.getStock());
+        ps.setString(1, producto.getNombre());
+        ps.setString(2, producto.getCategoria());
+        ps.setInt(3, producto.getPrecio());
+        ps.setInt(4, producto.getStock());
 
-            int filasAfectadas = ps.executeUpdate();
-            return filasAfectadas > 0;
+        int filasAfectadas = ps.executeUpdate();
+        return filasAfectadas > 0;
 
-        } catch (SQLException e) {
-            System.out.println("Error al guardar producto: " + e.getMessage());
-            return false;
-        }
-
+    } catch (SQLException e) {
+        System.out.println("Error al guardar producto: " + e.getMessage());
+        return false;
     }
+}
 
     public ArrayList<Producto> obtenerTodos(){
         ArrayList<Producto> lista = new ArrayList<>();
@@ -56,7 +55,7 @@ public class ProductoDAO {
     }
 
     public boolean actualizar(Producto producto){
-        String sql_update = "UPDATE producto SET nombre = ?, categoria = ?, precio = ?, stock = ? WHERE id = ?";
+        String sql_update = "UPDATE productos SET nombre = ?, categoria = ?, precio = ?, stock = ? WHERE id = ?";
 
         try (Connection conn = ConexionDB.obtenerConexion();
             PreparedStatement ps = conn.prepareStatement(sql_update)){
@@ -75,7 +74,7 @@ public class ProductoDAO {
     }
 
     public boolean eliminar(int id){
-        String sql_delete = "DELETE FROM producto WHERE id = ?";
+        String sql_delete = "DELETE FROM productos WHERE id = ?";
         try (Connection conn = ConexionDB.obtenerConexion();
             PreparedStatement ps = conn.prepareStatement(sql_delete)){
                 ps.setInt(1, id);
